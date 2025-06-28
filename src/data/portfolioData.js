@@ -1,4 +1,20 @@
-import { FaAws, FaCss3, FaDocker, FaEnvelope, FaFigma, FaGit, FaGithub, FaHtml5, FaJs, FaLinkedin, FaNodeJs, FaPython, FaReact, FaTwitter, FaVuejs } from "react-icons/fa";
+import {
+    FaAws,
+    FaCss3,
+    FaDocker,
+    FaEnvelope,
+    FaFigma,
+    FaGit,
+    FaGithub,
+    FaHtml5,
+    FaJs,
+    FaLinkedin,
+    FaNodeJs,
+    FaPython,
+    FaReact,
+    FaTwitter,
+    FaVuejs,
+} from "react-icons/fa";
 import avatar from "../assets/images/profile.png";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiPostman, SiTypescript } from "react-icons/si";
@@ -6,6 +22,9 @@ import { DiMongodb, DiPostgresql } from "react-icons/di";
 import { GiRestingVampire } from "react-icons/gi";
 import { GrGraphQl } from "react-icons/gr";
 import { VscCode } from "react-icons/vsc";
+
+import carRentalSs from "../assets/images/car-rental-screenshot.png"
+import gardeningSs from "../assets/images/gardening-community-screenshot.png"
 
 // Personal Information
 export const personalInfo = {
@@ -89,7 +108,12 @@ export const skills = {
         { name: "React", level: 90, icon: FaReact, color: "#61DAFB" },
         { name: "HTML5", level: 100, icon: FaHtml5, color: "#E34F26" },
         { name: "CSS3", level: 90, icon: FaCss3, color: "#1572B6" },
-        { name: "Tailwind CSS", level: 90, icon: RiTailwindCssFill, color: "#06B6D4" },
+        {
+            name: "Tailwind CSS",
+            level: 90,
+            icon: RiTailwindCssFill,
+            color: "#06B6D4",
+        },
         { name: "TypeScript", level: 50, icon: SiTypescript, color: "#3178C6" },
         { name: "Next.js", level: 70, icon: RiNextjsFill, color: "#000000" },
         { name: "Vue.js", level: 0, icon: FaVuejs, color: "#4FC08D" },
@@ -100,7 +124,12 @@ export const skills = {
         { name: "Python", level: 0, icon: FaPython, color: "#3776AB" },
         { name: "MongoDB", level: 50, icon: DiMongodb, color: "#47A248" },
         { name: "PostgreSQL", level: 0, icon: DiPostgresql, color: "#4169E1" },
-        { name: "REST APIs", level: 70, icon: GiRestingVampire, color: "#FF6B35" },
+        {
+            name: "REST APIs",
+            level: 70,
+            icon: GiRestingVampire,
+            color: "#FF6B35",
+        },
         { name: "GraphQL", level: 0, icon: GrGraphQl, color: "#E10098" },
     ],
     tools: [
@@ -185,31 +214,35 @@ export const experience = [
 export const projects = [
     {
         id: 1,
-        title: "E-Commerce Platform",
+        title: "Car Rental System",
         description:
-            "A full-featured e-commerce platform with user authentication, product management, shopping cart, and payment integration.",
-        shortDescription: "Modern e-commerce solution with advanced features",
-        image: "/project-images/ecommerce.jpg", // Add your project image
-        technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
+            "A modern, responsive car rental application built with React, Vite, and Tailwind CSS. This application provides a complete car rental experience with user authentication, car management, booking system, and an intuitive user interface.",
+        shortDescription: "Modern Car rental solution with advanced features",
+        image: carRentalSs,
+        technologies: [
+            "React",
+            "Tailwind CSS",
+            "Firebase Authentication",
+            "Node.js",
+            "Express.js",
+            "JWT",
+            "MongoDB",
+        ],
         category: "Full Stack",
         featured: true,
-        liveDemo: "https://your-ecommerce-demo.com",
-        githubRepo: "https://github.com/yourusername/ecommerce-platform",
-        detailedDescription: `This e-commerce platform represents a comprehensive solution for online retail businesses. 
-                         Built with modern technologies, it provides a seamless shopping experience for customers 
-                         while offering robust management tools for administrators.`,
+        liveDemo: "https://car-rental-c9294.web.app/",
+        githubRepo: "https://github.com/codewithjihad1/car-rental.git",
+        detailedDescription: `A modern, responsive car rental application built with React, Vite, and Tailwind CSS. This application provides a complete car rental experience with user authentication, car management, booking system, and an intuitive user interface.`,
         features: [
-            "User registration and authentication with JWT",
-            "Product catalog with advanced filtering and search",
-            "Shopping cart with persistent state",
-            "Secure payment processing with Stripe integration",
-            "Order tracking and management system",
-            "Admin dashboard for inventory management",
-            "Responsive design for all devices",
-            "Email notifications for order updates",
+            "🔐 Authentication - Firebase Auth with Google OAuth and authentication with JWT",
+            "🚗 Car Management - Browse, add, edit, and delete cars",
+            "📅 Booking System - Interactive booking with date selection",
+            "🎨 Modern UI/UX - Dark/light theme with responsive design",
+            "📱 Mobile Responsive - Optimized for all device sizes",
+            "🔒 Protected Routes - Secure user-specific content",
+            "📱 Responsive design for all devices",
         ],
         challenges: [
-            "Implementing secure payment processing while maintaining user experience",
             "Optimizing database queries for large product catalogs",
             "Creating a responsive design that works across all device sizes",
             "Managing state across complex user flows",
@@ -220,16 +253,16 @@ export const projects = [
             "Add real-time chat support",
             "Integrate AI-powered product recommendations",
         ],
-        duration: "3 months",
+        duration: "1 month",
         role: "Full Stack Developer",
     },
     {
         id: 2,
-        title: "Task Management App",
+        title: "Garden Community Hub 🌱",
         description:
-            "A collaborative task management application with real-time updates, team collaboration features, and advanced project tracking.",
+            "A platform for gardening enthusiasts to share tips, find local gardeners, ask plant care questions, post or join gardening events, and connect over shared interests like composting, hydroponics, balcony gardens, etc.",
         shortDescription: "Collaborative productivity tool for teams",
-        image: "/project-images/task-manager.jpg",
+        image: gardeningSs,
         technologies: [
             "React",
             "TypeScript",
@@ -237,37 +270,29 @@ export const projects = [
             "Material-UI",
             "Socket.io",
         ],
-        category: "Frontend",
+        category: "Full Stack",
         featured: true,
-        liveDemo: "https://your-task-manager-demo.com",
-        githubRepo: "https://github.com/yourusername/task-manager",
+        liveDemo: "https://gardening-community-c3ec1.web.app/",
+        githubRepo: "https://github.com/codewithjihad1/garden-community-hub.git",
         detailedDescription: `A comprehensive task management solution designed to boost team productivity. 
                          Features real-time collaboration, intuitive project organization, and detailed 
                          progress tracking capabilities.`,
         features: [
-            "Real-time collaboration with live updates",
-            "Drag-and-drop task organization",
-            "Project timeline and milestone tracking",
-            "Team member assignment and notifications",
-            "File attachment and commenting system",
-            "Advanced filtering and search capabilities",
-            "Time tracking and productivity analytics",
-            "Dark/light theme toggle",
+            "User Authentication with Email/Password and Google Sign-in",
+            "Share and Browse Gardening Tips",
+            "Explore Local Gardeners",
+            "Responsive Design for Mobile and Desktop",
+            "Dark/Light Theme Toggle",
+            "Private Routes for Authenticated Users",
+            "Like and Save Favorite Tips",
+            "Filter Tips by Difficulty Level",
+            "Modern and Intuitive UI",
+            "Search and Filter Functionality",
         ],
-        challenges: [
-            "Implementing real-time synchronization across multiple users",
-            "Creating an intuitive drag-and-drop interface",
-            "Optimizing performance with large datasets",
-            "Designing a scalable notification system",
-        ],
-        improvements: [
-            "Add calendar integration",
-            "Implement advanced reporting features",
-            "Add mobile app version",
-            "Include AI-powered task prioritization",
-        ],
-        duration: "2 months",
-        role: "Frontend Developer",
+        challenges: [],
+        improvements: [],
+        duration: "15 days",
+        role: "Full Stack Project",
     },
     {
         id: 3,
@@ -285,8 +310,8 @@ export const projects = [
         ],
         category: "Full Stack",
         featured: false,
-        liveDemo: "https://your-weather-app-demo.com",
-        githubRepo: "https://github.com/yourusername/weather-dashboard",
+        liveDemo: "",
+        githubRepo: "",
         detailedDescription: `An advanced weather application that provides detailed meteorological information 
                          with beautiful visualizations. Features location-based forecasts, historical data, 
                          and severe weather alerts.`,
