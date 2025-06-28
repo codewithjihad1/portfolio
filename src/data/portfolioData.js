@@ -1,19 +1,20 @@
 import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import avatar from "../assets/images/profile-img.jpg";
 
 // Personal Information
 export const personalInfo = {
     name: "MD JIHAD HOSSAIN",
-    title: "Full Stack Developer",
+    title: "Frontend Developer",
     subtitle: "Crafting Digital Experiences with Modern Technologies",
-    bio: `Passionate Full Stack Developer with expertise in modern web technologies. 
+    bio: `Passionate Frontend Developer with expertise in modern web technologies. 
         I love creating innovative solutions that bridge the gap between design and functionality, 
         delivering exceptional user experiences through clean, efficient code.`,
     location: "Jamalpur, Bangladesh",
     email: "mdjihadhossain793@gmail.com",
     phone: "+8801646348232",
     whatsapp: "+8801646348232",
-    avatar: "/path-to-your-photo.jpg", // Update with your photo path
-    resume: "/path-to-your-resume.pdf", // Update with your resume path
+    avatar,
+    resume: "/path-to-your-resume.pdf", 
 };
 
 // Social Links

@@ -89,7 +89,7 @@ const AboutSection = () => {
                     </div>
 
                     {/* Hobbies and Interests */}
-                    <div className={`mt-16 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    {/* <div className={`mt-16 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <Card>
                             <h3 className="text-2xl font-bold theme-text-primary mb-6 text-center">
                                 Beyond Coding
@@ -116,7 +116,7 @@ const AboutSection = () => {
                                 </div>
                             </div>
                         </Card>
-                    </div>
+                    </div> */}
 
                     {/* Call to Action */}
                     <div className={`mt-12 text-center transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
