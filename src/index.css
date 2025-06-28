@@ -104,3 +104,65 @@ html {
   background-size: 200% 200%;
   animation: gradient 3s ease infinite;
 }
+
+/* Progress Bar Animations */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+.animate-shine {
+  animation: shine 2s ease-in-out infinite;
+}
+
+/* Striped pattern for progress bars */
+.bg-stripes {
+  background-image: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.1) 10px,
+      rgba(255, 255, 255, 0.1) 20px);
+}
+
+.progress-striped {
+  background-image: repeating-linear-gradient(45deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1) 10px,
+      transparent 10px,
+      transparent 20px);
+  animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 40px 0;
+  }
+}
+
+/* Pulse effect for high skill levels */
+@keyframes skill-pulse {
+
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.animate-skill-pulse {
+  animation: skill-pulse 2s ease-in-out infinite;
+}

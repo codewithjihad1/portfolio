@@ -1,5 +1,11 @@
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import avatar from "../assets/images/profile-img.jpg";
+import { FaAws, FaCss3, FaDocker, FaEnvelope, FaFigma, FaGit, FaGithub, FaHtml5, FaJs, FaLinkedin, FaNodeJs, FaPython, FaReact, FaTwitter, FaVuejs } from "react-icons/fa";
+import avatar from "../assets/images/profile.png";
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { SiPostman, SiTypescript } from "react-icons/si";
+import { DiMongodb, DiPostgresql } from "react-icons/di";
+import { GiRestingVampire } from "react-icons/gi";
+import { GrGraphQl } from "react-icons/gr";
+import { VscCode } from "react-icons/vsc";
 
 // Personal Information
 export const personalInfo = {
@@ -14,7 +20,7 @@ export const personalInfo = {
     phone: "+8801646348232",
     whatsapp: "+8801646348232",
     avatar,
-    resume: "/path-to-your-resume.pdf", 
+    resume: "/path-to-your-resume.pdf",
 };
 
 // Social Links
@@ -79,31 +85,31 @@ export const aboutMe = {
 // Skills Data
 export const skills = {
     frontend: [
-        { name: "React", level: 95, icon: "react", color: "#61DAFB" },
-        { name: "JavaScript", level: 92, icon: "javascript", color: "#F7DF1E" },
-        { name: "TypeScript", level: 88, icon: "typescript", color: "#3178C6" },
-        { name: "HTML5", level: 96, icon: "html5", color: "#E34F26" },
-        { name: "CSS3", level: 94, icon: "css3", color: "#1572B6" },
-        { name: "Tailwind CSS", level: 90, icon: "tailwind", color: "#06B6D4" },
-        { name: "Next.js", level: 85, icon: "nextjs", color: "#000000" },
-        { name: "Vue.js", level: 78, icon: "vue", color: "#4FC08D" },
+        { name: "JavaScript", level: 90, icon: FaJs, color: "#F7DF1E" },
+        { name: "React", level: 90, icon: FaReact, color: "#61DAFB" },
+        { name: "HTML5", level: 100, icon: FaHtml5, color: "#E34F26" },
+        { name: "CSS3", level: 90, icon: FaCss3, color: "#1572B6" },
+        { name: "Tailwind CSS", level: 90, icon: RiTailwindCssFill, color: "#06B6D4" },
+        { name: "TypeScript", level: 50, icon: SiTypescript, color: "#3178C6" },
+        { name: "Next.js", level: 70, icon: RiNextjsFill, color: "#000000" },
+        { name: "Vue.js", level: 0, icon: FaVuejs, color: "#4FC08D" },
     ],
     backend: [
-        { name: "Node.js", level: 90, icon: "nodejs", color: "#339933" },
-        { name: "Express.js", level: 88, icon: "express", color: "#000000" },
-        { name: "Python", level: 85, icon: "python", color: "#3776AB" },
-        { name: "MongoDB", level: 82, icon: "mongodb", color: "#47A248" },
-        { name: "PostgreSQL", level: 80, icon: "postgresql", color: "#4169E1" },
-        { name: "REST APIs", level: 92, icon: "api", color: "#FF6B35" },
-        { name: "GraphQL", level: 75, icon: "graphql", color: "#E10098" },
+        { name: "Node.js", level: 70, icon: FaNodeJs, color: "#339933" },
+        { name: "Express.js", level: 60, icon: undefined, color: "#000000" },
+        { name: "Python", level: 0, icon: FaPython, color: "#3776AB" },
+        { name: "MongoDB", level: 50, icon: DiMongodb, color: "#47A248" },
+        { name: "PostgreSQL", level: 0, icon: DiPostgresql, color: "#4169E1" },
+        { name: "REST APIs", level: 70, icon: GiRestingVampire, color: "#FF6B35" },
+        { name: "GraphQL", level: 0, icon: GrGraphQl, color: "#E10098" },
     ],
     tools: [
-        { name: "Git", level: 93, icon: "git", color: "#F05032" },
-        { name: "Docker", level: 78, icon: "docker", color: "#2496ED" },
-        { name: "AWS", level: 72, icon: "aws", color: "#FF9900" },
-        { name: "Figma", level: 85, icon: "figma", color: "#F24E1E" },
-        { name: "VS Code", level: 95, icon: "vscode", color: "#007ACC" },
-        { name: "Postman", level: 88, icon: "postman", color: "#FF6C37" },
+        { name: "Git", level: 90, icon: FaGit, color: "#F05032" },
+        { name: "Docker", level: 0, icon: FaDocker, color: "#2496ED" },
+        { name: "AWS", level: 0, icon: FaAws, color: "#FF9900" },
+        { name: "Figma", level: 85, icon: FaFigma, color: "#F24E1E" },
+        { name: "VS Code", level: 100, icon: VscCode, color: "#007ACC" },
+        { name: "Postman", level: 90, icon: SiPostman, color: "#FF6C37" },
     ],
 };
 

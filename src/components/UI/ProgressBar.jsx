@@ -13,11 +13,11 @@ export const ProgressBar = ({
     className = ''
 }) => {
     const colors = {
-        primary: 'bg-gradient-to-r from-primary-500 to-primary-600',
-        secondary: 'bg-gradient-to-r from-secondary-500 to-secondary-600',
         success: 'bg-gradient-to-r from-green-500 to-green-600',
+        good: 'bg-gradient-to-r from-green-300 to-green-400',
         warning: 'bg-gradient-to-r from-yellow-500 to-yellow-600',
-        danger: 'bg-gradient-to-r from-red-500 to-red-600'
+        danger: 'bg-gradient-to-r from-red-500 to-red-600',
+        primary: 'bg-gradient-to-r from-primary-500 to-primary-600',
     };
 
     const sizes = {
@@ -30,7 +30,7 @@ export const ProgressBar = ({
         <div className={`w-full ${className}`}>
             <div className={`bg-gray-200 dark:bg-gray-700 rounded-full ${sizes[size]} overflow-hidden`}>
                 <div
-                    className={`${colors[color]} ${sizes[size]} rounded-full transition-all duration-1000 ease-out ${animated ? 'animate-pulse' : ''
+                    className={`${colors[color]} ${sizes[size]} rounded-full transition-all duration-3000 ease-out ${animated ? 'animate-pulse' : ''
                         }`}
                     style={{ width: `${Math.min(100, Math.max(0, percentage))}%` }}
                 />
