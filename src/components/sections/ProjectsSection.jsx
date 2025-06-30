@@ -32,10 +32,7 @@ const ProjectsSection = () => {
                     {/* Section Header */}
                     <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <h2 className="text-4xl md:text-5xl font-bold theme-text-primary mb-4">
-                            Featured{' '}
-                            <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                                Projects
-                            </span>
+                            Featured Projects
                         </h2>
                         <p className="text-lg theme-text-secondary max-w-2xl mx-auto">
                             A collection of my recent work showcasing different technologies and problem-solving approaches

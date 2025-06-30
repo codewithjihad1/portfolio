@@ -73,10 +73,7 @@ const SkillsSection = () => {
                     {/* Section Header */}
                     <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <h2 className="text-4xl md:text-5xl font-bold theme-text-primary mb-4">
-                            Technical{' '}
-                            <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                                Skills
-                            </span>
+                            Technical Skills
                         </h2>
                         <p className="text-lg theme-text-secondary max-w-2xl mx-auto">
                             A comprehensive overview of my technical expertise and proficiency levels

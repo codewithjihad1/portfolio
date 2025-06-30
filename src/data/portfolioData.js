@@ -23,8 +23,9 @@ import { GiRestingVampire } from "react-icons/gi";
 import { GrGraphQl } from "react-icons/gr";
 import { VscCode } from "react-icons/vsc";
 
-import carRentalSs from "../assets/images/car-rental-screenshot.png"
-import gardeningSs from "../assets/images/gardening-community-screenshot.png"
+import carRentalSs from "../assets/images/car-rental-screenshot.png";
+import gardeningSs from "../assets/images/gardening-community-screenshot.png";
+import weatherappSs from "../assets/images/weatherapp-screenshot.png"
 
 // Personal Information
 export const personalInfo = {
@@ -273,7 +274,8 @@ export const projects = [
         category: "Full Stack",
         featured: true,
         liveDemo: "https://gardening-community-c3ec1.web.app/",
-        githubRepo: "https://github.com/codewithjihad1/garden-community-hub.git",
+        githubRepo:
+            "https://github.com/codewithjihad1/garden-community-hub.git",
         detailedDescription: `A comprehensive task management solution designed to boost team productivity. 
                          Features real-time collaboration, intuitive project organization, and detailed 
                          progress tracking capabilities.`,
@@ -296,49 +298,55 @@ export const projects = [
     },
     {
         id: 3,
-        title: "Weather Dashboard",
+        title: "Weather App",
         description:
-            "A comprehensive weather application with location-based forecasts, interactive maps, and weather alerts.",
-        shortDescription: "Interactive weather tracking application",
-        image: "/project-images/weather-app.jpg",
+            "A modern, responsive weather application that provides real-time weather information for any city worldwide or your current location using vanilla JavaScript.",
+        shortDescription: "Real-time weather tracking application",
+        image: weatherappSs,
         technologies: [
-            "Vue.js",
-            "Express.js",
-            "Weather API",
-            "Chart.js",
-            "Sass",
+            "HTML5",
+            "CSS3",
+            "Vanilla JavaScript",
+            "OpenWeatherMap API",
+            "Geolocation API",
+            "Boxicons",
+            "Google Fonts",
         ],
-        category: "Full Stack",
+        category: "Frontend",
         featured: false,
-        liveDemo: "",
-        githubRepo: "",
-        detailedDescription: `An advanced weather application that provides detailed meteorological information 
-                         with beautiful visualizations. Features location-based forecasts, historical data, 
-                         and severe weather alerts.`,
+        liveDemo: "https://jihad100.github.io/weatherapp/",
+        githubRepo: "https://github.com/jihad100/weatherapp.git",
+        detailedDescription: `A clean and intuitive weather application built with vanilla JavaScript that delivers 
+                         real-time weather information. Features location-based weather detection, city search 
+                         functionality, and comprehensive weather details with dynamic weather icons.`,
         features: [
-            "Current weather conditions with detailed metrics",
-            "7-day forecast with hourly breakdowns",
-            "Interactive weather maps",
-            "Location-based automatic updates",
-            "Weather alerts and notifications",
-            "Historical weather data visualization",
-            "Favorite locations management",
-            "Responsive design with smooth animations",
+            "Real-time weather data using OpenWeatherMap API",
+            "Location-based automatic weather detection",
+            "City search with global coverage",
+            "Current temperature with 'feels like' readings",
+            "Humidity percentage display",
+            "Dynamic weather icons for different conditions",
+            "Responsive design for all devices",
+            "Error handling for invalid inputs and location issues",
+            "Clean, modern user interface with smooth transitions",
         ],
         challenges: [
-            "Integrating multiple weather APIs for comprehensive data",
-            "Creating responsive chart visualizations",
-            "Handling geolocation and privacy concerns",
-            "Optimizing API calls to reduce costs",
+            "Implementing geolocation API with proper error handling",
+            "Creating responsive design without framework dependencies",
+            "Managing API rate limits and error responses",
+            "Designing intuitive navigation between search and results",
         ],
         improvements: [
-            "Add weather-based activity recommendations",
-            "Implement machine learning for better predictions",
-            "Add social sharing features",
-            "Include air quality monitoring",
+            "Add 5-day weather forecast functionality",
+            "Implement temperature unit conversion (Celsius/Fahrenheit)",
+            "Add weather alerts and notifications",
+            "Include local time display for searched cities",
+            "Add weather history tracking",
+            "Implement dark/light theme toggle",
+            "Add PWA support for offline functionality",
         ],
-        duration: "1.5 months",
-        role: "Full Stack Developer",
+        duration: "2 weeks",
+        role: "Frontend Developer",
     },
 ];
 

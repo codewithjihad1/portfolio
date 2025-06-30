@@ -97,7 +97,7 @@ const Footer = () => {
                                             title={social.name}
                                         >
                                             <div className="w-4 h-4" style={{ color: social.color }}>
-                                                {/* Social icons would be rendered here */}
+                                                <social.icon size={20} />
                                             </div>
                                         </a>
                                     ))}

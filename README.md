@@ -188,17 +188,13 @@ src/
 
 If you need help customizing this portfolio or have questions:
 
--   **Email**: your.email@example.com
--   **GitHub**: [Your GitHub Profile]
--   **LinkedIn**: [Your LinkedIn Profile]
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+-   **Email**: mdjihadhossain793@gmail.com
+-   **GitHub**: [https://github.com/codewithjihad1](https://github.com/codewithjihad1)
+-   **LinkedIn**: [https://www.linkedin.com/in/codewithjihad1/](https://www.linkedin.com/in/codewithjihad1/)
 
 ---
 
-**Made with ❤️ by [Your Name]**
+**Made with ❤️ by MD JIHAD HOSSAIN**
 
 Ready to showcase your skills to the world! 🌟+ Vite
 
