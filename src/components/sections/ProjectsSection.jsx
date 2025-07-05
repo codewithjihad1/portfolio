@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Button, Modal } from '../UI';
 import { projects } from '../../data/portfolioData';
 import { useIntersectionObserver } from '../../hooks';
+import { useNavigate } from 'react-router';
 
 const ProjectsSection = () => {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
@@ -12,10 +13,6 @@ const ProjectsSection = () => {
     const filteredProjects = filter === 'all'
         ? projects
         : projects.filter(project => project.category === filter);
-
-    const openProjectModal = (project) => {
-        setSelectedProject(project);
-    };
 
     const closeProjectModal = () => {
         setSelectedProject(null);
@@ -47,8 +44,8 @@ const ProjectsSection = () => {
                                 key={category}
                                 onClick={() => setFilter(category)}
                                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${filter === category
-                                        ? 'bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-lg'
-                                        : 'theme-bg-primary theme-text-secondary hover:theme-text-primary theme-border border'
+                                    ? 'bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-lg'
+                                    : 'theme-bg-primary theme-text-secondary hover:theme-text-primary theme-border border'
                                     }`}
                             >
                                 {category}
@@ -138,17 +135,15 @@ const ProjectsSection = () => {
                                         </div>
 
                                         {/* Action Button */}
-                                        <Button
-                                            variant="ghost"
-                                            size="sm"
-                                            onClick={() => openProjectModal(project)}
-                                            className="w-full"
+                                        <a
+                                            href={project.githubRepo}
+                                            className="w-full flex items-center justify-center px-4 py-2 bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-md hover:from-primary-700 hover:to-secondary-700 transition-colors duration-300"
                                         >
-                                            View Details
+                                            <span>View Details</span>
                                             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                             </svg>
-                                        </Button>
+                                        </a>
                                     </div>
                                 </Card>
                             </div>
