@@ -46,7 +46,7 @@ const Navbar = () => {
                             onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}
                             className="text-2xl font-bold bg-gradient-to-r from-primary-600 via-purple-600 to-secondary-600 bg-clip-text text-transparent hover:from-secondary-600 hover:via-primary-600 hover:to-purple-600 transition-all duration-500 animate-gradient bg-[length:200%_auto] hover:scale-105 transform"
                         >
-                            Portfolio
+                            CodeWithJihad
                         </a>
                     </div>
 
