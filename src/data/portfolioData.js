@@ -25,7 +25,7 @@ import { VscCode } from "react-icons/vsc";
 
 import carRentalSs from "../assets/images/car-rental-screenshot.png";
 import gardeningSs from "../assets/images/gardening-community-screenshot.png";
-import weatherappSs from "../assets/images/weatherapp-screenshot.png"
+import mediCarePharmacy from "../assets/images/medi-care-pharmacy.png"
 
 // Personal Information
 export const personalInfo = {
@@ -210,6 +210,60 @@ export const experience = [
 export const projects = [
     {
         id: 1,
+        title: "MediCare Pharmacy",
+        description:
+            "Complete Medicine E-commerce Platform",
+        shortDescription: "A comprehensive full-stack medicine e-commerce platform built with modern web technologies, featuring role-based authentication, payment integration, and responsive design.",
+        image: mediCarePharmacy,
+        technologies: [
+            "React.js",
+            "Tailwind CSS",
+            "JavaScript",
+            "Node.js",
+            "Express.js",
+            "Mongodb",
+            "TanStack Query",
+        ],
+        category: "Full Stack",
+        featured: false,
+        liveDemo: "https://multi-vendor-e-commerce-a258a.web.app/",
+        githubRepo: "https://github.com/codewithjihad1/medicare-pharmacy",
+        detailedDescription: `A comprehensive full-stack medicine e-commerce platform built with modern web technologies, featuring role-based authentication, payment integration, and responsive design.`,
+        features: [
+            "Firebase Authentication with email/password and Google OAuth",
+            "Role-based access control (Admin, Seller, Customer)",
+            "JWT token validation with Firebase Admin SDK",
+            "Stripe payment integration for secure transactions",
+            "Order management and tracking",
+            "Invoice generation with PDF export",
+            "👑 Admin Dashboard",
+            "Real-time statistics and analytics",
+            "🏪 Seller Dashboard",
+            "Payment history and earnings tracking",
+            "Add/edit/delete medicines with image upload",
+        ],
+        challenges: [
+            "Implementing role-based authentication and authorization",
+            "Creating responsive design without framework dependencies",
+            "Managing API rate limits and error responses",
+            "Designing intuitive navigation between search and results",
+            "Implementing efficient state management",
+            "Implementing stripe payment integration"
+        ],
+        improvements: [
+            "Add 5-day weather forecast functionality",
+            "Implement temperature unit conversion (Celsius/Fahrenheit)",
+            "Add weather alerts and notifications",
+            "Include local time display for searched cities",
+            "Add weather history tracking",
+            "Implement dark/light theme toggle",
+            "Add PWA support for offline functionality",
+        ],
+        duration: "4 weeks",
+        role: "Full Stack Developer",
+    },
+    {
+        id: 2,
         title: "Car Rental System",
         description:
             "A modern, responsive car rental application built with React, Vite, and Tailwind CSS. This application provides a complete car rental experience with user authentication, car management, booking system, and an intuitive user interface.",
@@ -253,7 +307,7 @@ export const projects = [
         role: "Full Stack Developer",
     },
     {
-        id: 2,
+        id: 3,
         title: "Garden Community Hub 🌱",
         description:
             "A platform for gardening enthusiasts to share tips, find local gardeners, ask plant care questions, post or join gardening events, and connect over shared interests like composting, hydroponics, balcony gardens, etc.",
@@ -290,59 +344,7 @@ export const projects = [
         improvements: [],
         duration: "15 days",
         role: "Full Stack Project",
-    },
-    {
-        id: 3,
-        title: "Weather App",
-        description:
-            "A modern, responsive weather application that provides real-time weather information for any city worldwide or your current location using vanilla JavaScript.",
-        shortDescription: "Real-time weather tracking application",
-        image: weatherappSs,
-        technologies: [
-            "HTML5",
-            "CSS3",
-            "Vanilla JavaScript",
-            "OpenWeatherMap API",
-            "Geolocation API",
-            "Boxicons",
-            "Google Fonts",
-        ],
-        category: "Frontend",
-        featured: false,
-        liveDemo: "https://jihad100.github.io/weatherapp/",
-        githubRepo: "https://github.com/jihad100/weatherapp.git",
-        detailedDescription: `A clean and intuitive weather application built with vanilla JavaScript that delivers 
-                         real-time weather information. Features location-based weather detection, city search 
-                         functionality, and comprehensive weather details with dynamic weather icons.`,
-        features: [
-            "Real-time weather data using OpenWeatherMap API",
-            "Location-based automatic weather detection",
-            "City search with global coverage",
-            "Current temperature with 'feels like' readings",
-            "Humidity percentage display",
-            "Dynamic weather icons for different conditions",
-            "Responsive design for all devices",
-            "Error handling for invalid inputs and location issues",
-            "Clean, modern user interface with smooth transitions",
-        ],
-        challenges: [
-            "Implementing geolocation API with proper error handling",
-            "Creating responsive design without framework dependencies",
-            "Managing API rate limits and error responses",
-            "Designing intuitive navigation between search and results",
-        ],
-        improvements: [
-            "Add 5-day weather forecast functionality",
-            "Implement temperature unit conversion (Celsius/Fahrenheit)",
-            "Add weather alerts and notifications",
-            "Include local time display for searched cities",
-            "Add weather history tracking",
-            "Implement dark/light theme toggle",
-            "Add PWA support for offline functionality",
-        ],
-        duration: "2 weeks",
-        role: "Frontend Developer",
-    },
+    },    
 ];
 
 // Contact Information

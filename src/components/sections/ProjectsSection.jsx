@@ -43,7 +43,7 @@ const ProjectsSection = () => {
                                 key={category}
                                 onClick={() => setFilter(category)}
                                 className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${filter === category
-                                    ? 'bg-gradient-to-r from-primary-600 to-secondary-600 text-white shadow-lg'
+                                    ? 'bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white shadow-lg'
                                     : 'theme-bg-primary theme-text-secondary hover:theme-text-primary theme-border border'
                                     }`}
                             >
