@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Card, Button, Modal } from '../UI';
 import { projects } from '../../data/portfolioData';
 import { useIntersectionObserver } from '../../hooks';
-import { useNavigate } from 'react-router';
 
 const ProjectsSection = () => {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });

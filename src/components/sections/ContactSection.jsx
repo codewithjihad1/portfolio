@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Card } from '../UI';
+import  { useState } from 'react';
+import {  Card } from '../UI';
 import { contactInfo, socialLinks } from '../../data/portfolioData';
 import { useIntersectionObserver } from '../../hooks';
 import { validateEmail, copyToClipboard } from '../../utils/helpers';
@@ -129,7 +129,7 @@ const ContactSection = () => {
                                 </h3>
 
                                 <div className="space-y-6 mb-8">
-                                    {contactMethods.map((method, index) => (
+                                    {contactMethods.map((method) => (
                                         <div key={method.title} className="flex items-center gap-4 p-4 rounded-lg hover:theme-bg-secondary transition-colors duration-200">
                                             <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center text-white">
                                                 {method.icon}

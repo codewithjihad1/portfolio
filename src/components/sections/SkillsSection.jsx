@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Card, ProgressBar } from '../UI';
+import { useState, useEffect } from 'react';
+import { Card } from '../UI';
 import { skills } from '../../data/portfolioData';
 import { useIntersectionObserver } from '../../hooks';
 import SkillsCard from './skills/SkillsCard';
@@ -38,17 +38,11 @@ const SkillsSection = () => {
             'CSS3': '🎨',
             'Tailwind CSS': '💨',
             'Next.js': '🔗',
-            'Vue.js': '💚',
             'Node.js': '🟢',
             'Express.js': '🚂',
-            'Python': '🐍',
             'MongoDB': '🍃',
-            'PostgreSQL': '🐘',
             'REST APIs': '🌐',
-            'GraphQL': '📊',
             'Git': '📁',
-            'Docker': '🐳',
-            'AWS': '☁️',
             'Figma': '🎭',
             'VS Code': '💻',
             'Postman': '📮'
