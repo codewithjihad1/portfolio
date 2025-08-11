@@ -120,7 +120,7 @@ const ContactSection = () => {
                         <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 mx-auto rounded-full mt-4"></div>
                     </div>
 
-                    <div className="grid lg:grid-cols-2 gap-12">
+                    <div className="grid lg:grid-cols-2 items-center gap-12">
                         {/* Contact Information */}
                         <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
                             <Card>
@@ -128,9 +128,9 @@ const ContactSection = () => {
                                     Let's Connect
                                 </h3>
 
-                                <div className="space-y-6 mb-8">
+                                <div className="mb-4">
                                     {contactMethods.map((method) => (
-                                        <div key={method.title} className="flex items-center gap-4 p-4 rounded-lg hover:theme-bg-secondary transition-colors duration-200">
+                                        <div key={method.title} className="flex items-center gap-2 py-1 rounded-lg hover:theme-bg-secondary transition-colors duration-200">
                                             <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center text-white">
                                                 {method.icon}
                                             </div>
