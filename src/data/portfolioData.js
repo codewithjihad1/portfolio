@@ -25,7 +25,8 @@ import { VscCode } from "react-icons/vsc";
 
 import carRentalSs from "../assets/images/car-rental-screenshot.png";
 import gardeningSs from "../assets/images/gardening-community-screenshot.png";
-import mediCarePharmacy from "../assets/images/medi-care-pharmacy.png"
+import mediCarePharmacy from "../assets/images/medi-care-pharmacy.png";
+import resume from "../assets/resume/Jihad_Resume_Template.pdf";
 
 // Personal Information
 export const personalInfo = {
@@ -40,7 +41,7 @@ export const personalInfo = {
     phone: "+8801646348232",
     whatsapp: "+8801646348232",
     avatar,
-    resume: "/path-to-your-resume.pdf",
+    resume,
 };
 
 // Social Links
@@ -211,9 +212,9 @@ export const projects = [
     {
         id: 1,
         title: "MediCare Pharmacy",
-        description:
-            "Complete Medicine E-commerce Platform",
-        shortDescription: "A comprehensive full-stack medicine e-commerce platform built with modern web technologies, featuring role-based authentication, payment integration, and responsive design.",
+        description: "Complete Medicine E-commerce Platform",
+        shortDescription:
+            "A comprehensive full-stack medicine e-commerce platform built with modern web technologies, featuring role-based authentication, payment integration, and responsive design.",
         image: mediCarePharmacy,
         technologies: [
             "React.js",
@@ -248,7 +249,7 @@ export const projects = [
             "Managing API rate limits and error responses",
             "Designing intuitive navigation between search and results",
             "Implementing efficient state management",
-            "Implementing stripe payment integration"
+            "Implementing stripe payment integration",
         ],
         improvements: [
             "Add 5-day weather forecast functionality",
@@ -344,7 +345,7 @@ export const projects = [
         improvements: [],
         duration: "15 days",
         role: "Full Stack Project",
-    },    
+    },
 ];
 
 // Contact Information
