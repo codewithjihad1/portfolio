@@ -46,90 +46,88 @@ const HeroSection = () => {
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-4rem)]">
-                        {/* Left Content */}
-                        <div className="order-2 lg:order-1">
-                            {/* Name and Title */}
-                            <div className={`mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold theme-text-primary mb-4 leading-tight">
-                                    Hi, I'm{' '}
-                                    <span className="bg-gradient-to-r from-primary-600 via-purple-600 to-secondary-600 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] block lg:inline">
-                                        {personalInfo.name}
-                                    </span>
-                                </h1>
-                                <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold theme-text-primary mb-3">
-                                    {personalInfo.title}
-                                </h2>
-                                <p className="text-lg md:text-xl theme-text-secondary max-w-lg leading-relaxed">
-                                    {personalInfo.subtitle}
-                                </p>
-                            </div>
+                <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-4rem)]">
+                    {/* Left Content */}
+                    <div className="order-2 lg:order-1">
+                        {/* Name and Title */}
+                        <div className={`mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold theme-text-primary mb-4 leading-tight">
+                                Hi, I'm{' '}
+                                <span className="bg-gradient-to-r from-primary-600 via-purple-600 to-secondary-600 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] block lg:inline">
+                                    {personalInfo.name}
+                                </span>
+                            </h1>
+                            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold theme-text-primary mb-3">
+                                {personalInfo.title}
+                            </h2>
+                            <p className="text-lg md:text-xl theme-text-secondary max-w-lg leading-relaxed">
+                                {personalInfo.subtitle}
+                            </p>
+                        </div>
 
-                            {/* Action Buttons */}
-                            <div className={`mb-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                                <div className="flex flex-col sm:flex-row gap-4">
-                                    <Button
-                                        onClick={handleViewProjects}
-                                    >
-                                        View My Work
-                                    </Button>
-                                    <Button
-                                        onClick={handleDownloadResume}
-                                    >
-                                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                        </svg>
-                                        Download Resume
-                                    </Button>
-                                </div>
-                            </div>
-
-                            {/* Social Links */}
-                            <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                                <div className="flex gap-4">
-                                    {socialLinks.map((social, index) => (
-                                        <a
-                                            key={social.name}
-                                            href={social.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 group"
-                                            style={{
-                                                animationDelay: `${800 + index * 100}ms`,
-                                                color: social.color
-                                            }}
-                                            title={social.name}
-                                        >
-                                            {renderSocialIcon(social.icon)}
-                                        </a>
-                                    ))}
-                                </div>
+                        {/* Action Buttons */}
+                        <div className={`mb-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Button
+                                    onClick={handleViewProjects}
+                                >
+                                    View My Work
+                                </Button>
+                                <Button
+                                    onClick={handleDownloadResume}
+                                >
+                                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                    Download Resume
+                                </Button>
                             </div>
                         </div>
 
-                        {/* Right Image */}
-                        <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-                            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                                <div className="relative">
-                                    <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden ring-4 ring-primary-500/20 shadow-2xl">
-                                        <img
-                                            src={personalInfo.avatar || "/api/placeholder/400/400"}
-                                            alt={personalInfo.name}
-                                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                                        />
-                                    </div>
-                                    {/* Status Indicator */}
-                                    <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
-                                        <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                                        <span className="text-sm font-medium">Available</span>
-                                    </div>
+                        {/* Social Links */}
+                        <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                            <div className="flex gap-4">
+                                {socialLinks.map((social, index) => (
+                                    <a
+                                        key={social.name}
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 group"
+                                        style={{
+                                            animationDelay: `${800 + index * 100}ms`,
+                                            color: social.color
+                                        }}
+                                        title={social.name}
+                                    >
+                                        {renderSocialIcon(social.icon)}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
 
-                                    {/* Floating Elements */}
-                                    <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg rotate-12 animate-float"></div>
-                                    <div className="absolute top-1/2 -right-6 w-6 h-6 bg-gradient-to-r from-secondary-500 to-primary-500 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-                                    <div className="absolute bottom-1/4 -left-6 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
+                    {/* Right Image */}
+                    <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+                        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                            <div className="relative">
+                                <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden ring-4 ring-primary-500/20 shadow-2xl">
+                                    <img
+                                        src={personalInfo.avatar || "/api/placeholder/400/400"}
+                                        alt={personalInfo.name}
+                                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                    />
                                 </div>
+                                {/* Status Indicator */}
+                                <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
+                                    <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                                    <span className="text-sm font-medium">Available</span>
+                                </div>
+
+                                {/* Floating Elements */}
+                                <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg rotate-12 animate-float"></div>
+                                <div className="absolute top-1/2 -right-6 w-6 h-6 bg-gradient-to-r from-secondary-500 to-primary-500 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+                                <div className="absolute bottom-1/4 -left-6 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
                             </div>
                         </div>
                     </div>

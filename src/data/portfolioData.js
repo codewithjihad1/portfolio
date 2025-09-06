@@ -15,7 +15,7 @@ import {
     FaTwitter,
     FaVuejs,
 } from "react-icons/fa";
-import avatar from "../assets/images/profile.png";
+// import avatar from "../assets/images/profile.png";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiPostman, SiTypescript } from "react-icons/si";
 import { DiMongodb, DiPostgresql } from "react-icons/di";
@@ -40,7 +40,7 @@ export const personalInfo = {
     email: "mdjihadhossain793@gmail.com",
     phone: "+8801646348232",
     whatsapp: "+8801646348232",
-    avatar,
+    avatar: "https://i.ibb.co.com/rKjswy78/1757078859551.png",
     resume,
 };
 

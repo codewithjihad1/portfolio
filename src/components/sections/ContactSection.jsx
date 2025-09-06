@@ -1,5 +1,5 @@
-import  { useState } from 'react';
-import {  Card } from '../UI';
+import { useState } from 'react';
+import { Card } from '../UI';
 import { contactInfo, socialLinks } from '../../data/portfolioData';
 import { useIntersectionObserver } from '../../hooks';
 import { validateEmail, copyToClipboard } from '../../utils/helpers';
@@ -49,7 +49,8 @@ const ContactSection = () => {
                 message: 'Thank you for your message! I\'ll get back to you soon.'
             });
             setFormData({ name: '', email: '', subject: '', message: '' });
-        } catch (error) {
+        } catch (err) {
+            console.error('Form submission error:', err);
             setFormStatus({
                 type: 'error',
                 message: 'Something went wrong. Please try again later.'
@@ -105,107 +106,107 @@ const ContactSection = () => {
         <section
             id="contact"
             ref={ref}
-            className="py-20 theme-bg-primary"
+            className="py-16 sm:py-20 theme-bg-primary"
         >
-            <div className="container mx-auto px-4">
-                <div className="max-w-6xl mx-auto">
-                    {/* Section Header */}
-                    <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                        <h2 className="text-4xl md:text-5xl font-bold theme-text-primary mb-4">
-                            Get In Touch
-                        </h2>
-                        <p className="text-lg theme-text-secondary max-w-2xl mx-auto">
-                            Have a project in mind or want to collaborate? I'd love to hear from you!
-                        </p>
-                        <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 mx-auto rounded-full mt-4"></div>
-                    </div>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Section Header */}
+                <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold theme-text-primary mb-4">
+                        Get In Touch
+                    </h2>
+                    <p className="text-base sm:text-lg theme-text-secondary max-w-2xl mx-auto px-4">
+                        Have a project in mind or want to collaborate? I'd love to hear from you!
+                    </p>
+                    <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 mx-auto rounded-full mt-4"></div>
+                </div>
 
-                    <div className="grid lg:grid-cols-2 items-center gap-12">
-                        {/* Contact Information */}
-                        <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-                            <Card>
-                                <h3 className="text-2xl font-bold theme-text-primary mb-6">
-                                    Let's Connect
-                                </h3>
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto px-4">
+                    {/* Contact Information */}
+                    <div className={`order-2 lg:order-1 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+                        <Card className="h-full">
+                            <h3 className="text-xl sm:text-2xl font-bold theme-text-primary mb-6">
+                                Let's Connect
+                            </h3>
 
-                                <div className="mb-4">
-                                    {contactMethods.map((method) => (
-                                        <div key={method.title} className="flex items-center gap-2 py-1 rounded-lg hover:theme-bg-secondary transition-colors duration-200">
-                                            <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center text-white">
-                                                {method.icon}
-                                            </div>
-                                            <div className="flex-1">
-                                                <h4 className="font-semibold theme-text-primary">{method.title}</h4>
-                                                <p className="theme-text-secondary text-sm">{method.value}</p>
-                                            </div>
-                                            <div className="flex gap-2">
+                            <div className="space-y-4 mb-8">
+                                {contactMethods.map((method) => (
+                                    <div key={method.title} className="flex items-center gap-3 p-3 rounded-lg hover:theme-bg-secondary transition-colors duration-200 group">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-600 to-secondary-600 rounded-lg flex items-center justify-center text-white flex-shrink-0">
+                                            {method.icon}
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h4 className="font-semibold theme-text-primary text-sm sm:text-base">{method.title}</h4>
+                                            <p className="theme-text-secondary text-xs sm:text-sm truncate">{method.value}</p>
+                                        </div>
+                                        <div className="flex gap-2 flex-shrink-0">
+                                            <button
+                                                onClick={method.action}
+                                                className="p-2 rounded-lg theme-bg-secondary hover:theme-accent-bg hover:text-white transition-all duration-200 touch-manipulation group-hover:scale-105"
+                                                title={`Contact via ${method.title}`}
+                                            >
+                                                <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </button>
+                                            {method.copyAction && (
                                                 <button
-                                                    onClick={method.action}
-                                                    className="p-2 rounded-lg theme-bg-secondary hover:theme-accent-bg hover:text-white transition-all duration-200"
-                                                    title={`Contact via ${method.title}`}
+                                                    onClick={method.copyAction}
+                                                    className="p-2 rounded-lg theme-bg-secondary hover:theme-accent-bg hover:text-white transition-all duration-200 touch-manipulation group-hover:scale-105"
+                                                    title="Copy to clipboard"
                                                 >
-                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                                     </svg>
                                                 </button>
-                                                {method.copyAction && (
-                                                    <button
-                                                        onClick={method.copyAction}
-                                                        className="p-2 rounded-lg theme-bg-secondary hover:theme-accent-bg hover:text-white transition-all duration-200"
-                                                        title="Copy to clipboard"
-                                                    >
-                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                                        </svg>
-                                                    </button>
-                                                )}
-                                            </div>
+                                            )}
                                         </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Social Links */}
+                            <div className="mb-8">
+                                <h4 className="font-semibold theme-text-primary mb-4 text-sm sm:text-base">Follow Me</h4>
+                                <div className="flex flex-wrap gap-3 sm:gap-4">
+                                    {socialLinks.map((social) => (
+                                        <a
+                                            key={social.name}
+                                            href={social.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/50 flex items-center justify-center transition-all duration-300 transform hover:scale-110 touch-manipulation"
+                                            title={social.name}
+                                        >
+                                            <div className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: social.color }}>
+                                                <social.icon size={16} className="sm:w-5 sm:h-5" />
+                                            </div>
+                                        </a>
                                     ))}
                                 </div>
+                            </div>
 
-                                {/* Social Links */}
-                                <div>
-                                    <h4 className="font-semibold theme-text-primary mb-4">Follow Me</h4>
-                                    <div className="flex gap-4">
-                                        {socialLinks.map((social) => (
-                                            <a
-                                                key={social.name}
-                                                href={social.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-primary-100 dark:hover:bg-primary-900/50 flex items-center justify-center transition-all duration-300 transform hover:scale-110"
-                                                title={social.name}
-                                            >
-                                                <div className="w-5 h-5" style={{ color: social.color }}>
-                                                    <social.icon size={20} />
-                                                </div>
-                                            </a>
-                                        ))}
+                            {/* Availability Status */}
+                            <div className="p-4 rounded-lg theme-bg-secondary">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+                                    <div className="min-w-0">
+                                        <p className="font-medium theme-text-primary text-sm sm:text-base">{contactInfo.availability}</p>
+                                        <p className="text-xs sm:text-sm theme-text-secondary">{contactInfo.responseTime}</p>
                                     </div>
                                 </div>
+                            </div>
+                        </Card>
+                    </div>
 
-                                {/* Availability Status */}
-                                <div className="mt-8 p-4 rounded-lg theme-bg-secondary">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                                        <div>
-                                            <p className="font-medium theme-text-primary">{contactInfo.availability}</p>
-                                            <p className="text-sm theme-text-secondary">{contactInfo.responseTime}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Card>
-                        </div>
-
-                        {/* Contact Form */}
-                        <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-                            <h3 className="text-2xl font-bold theme-text-primary mb-6">
+                    {/* Contact Form */}
+                    <div className={`order-1 lg:order-2 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+                        <div className="lg:sticky lg:top-8">
+                            <h3 className="text-xl sm:text-2xl font-bold theme-text-primary mb-6">
                                 Send Message
                             </h3>
 
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid md:grid-cols-2 gap-4">
+                                <div className="grid sm:grid-cols-2 gap-4">
                                     <div>
                                         <label htmlFor="name" className="block text-sm font-medium theme-text-primary mb-2">
                                             Name *
@@ -217,7 +218,7 @@ const ContactSection = () => {
                                             value={formData.name}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 rounded-lg theme-border border theme-bg-secondary theme-text-primary focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                                            className="w-full px-4 py-3 rounded-lg theme-border border theme-bg-secondary theme-text-primary focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-base"
                                             placeholder="Your Name"
                                         />
                                     </div>
@@ -232,7 +233,7 @@ const ContactSection = () => {
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 rounded-lg theme-border border theme-bg-secondary theme-text-primary focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                                            className="w-full px-4 py-3 rounded-lg theme-border border theme-bg-secondary theme-text-primary focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-base"
                                             placeholder="your.email@example.com"
                                         />
                                     </div>
@@ -248,7 +249,7 @@ const ContactSection = () => {
                                         name="subject"
                                         value={formData.subject}
                                         onChange={handleInputChange}
-                                        className="w-full px-4 py-3 rounded-lg theme-border border theme-bg-secondary theme-text-primary focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
+                                        className="w-full px-4 py-3 rounded-lg theme-border border theme-bg-secondary theme-text-primary focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 text-base"
                                         placeholder="Project Discussion"
                                     />
                                 </div>
@@ -264,14 +265,14 @@ const ContactSection = () => {
                                         onChange={handleInputChange}
                                         required
                                         rows={5}
-                                        className="w-full px-4 py-3 rounded-lg theme-border border theme-bg-secondary theme-text-primary focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none"
+                                        className="w-full px-4 py-3 rounded-lg theme-border border theme-bg-secondary theme-text-primary focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-none text-base"
                                         placeholder="Tell me about your project or ideas..."
                                     />
                                 </div>
 
                                 {/* Form Status */}
                                 {formStatus.message && (
-                                    <div className={`p-4 rounded-lg ${formStatus.type === 'success'
+                                    <div className={`p-4 rounded-lg text-sm sm:text-base ${formStatus.type === 'success'
                                         ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200'
                                         : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200'
                                         }`}>
@@ -282,11 +283,25 @@ const ContactSection = () => {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    loading={isSubmitting}
-                                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-primary-700 hover:to-secondary-700 transition-colors duration-300 flex items-center justify-center cursor-pointer"
-                                    size="lg"
+                                    className={`w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 sm:py-4 rounded-lg hover:from-primary-700 hover:to-secondary-700 transition-all duration-300 flex items-center justify-center touch-manipulation text-base sm:text-lg font-medium ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'transform hover:scale-105 active:scale-95'
+                                        }`}
                                 >
-                                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                                    {isSubmitting ? (
+                                        <>
+                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                            </svg>
+                                            Send Message
+                                        </>
+                                    )}
                                 </button>
                             </form>
                         </div>
