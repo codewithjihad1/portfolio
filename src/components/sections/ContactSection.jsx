@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Card } from '../UI';
 import { contactInfo, socialLinks } from '../../data/portfolioData';
 import { validateEmail, copyToClipboard } from '../../utils/helpers';
 
@@ -107,7 +106,7 @@ const ContactSection = () => {
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
                 {/* Section Header */}
-                <div className={`text-center mb-12 sm:mb-16 `}>
+                <div data-aos="fade-down" className={`text-center mb-12 sm:mb-16 `}>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold theme-text-primary mb-4">
                         Get In Touch
                     </h2>
@@ -119,7 +118,7 @@ const ContactSection = () => {
 
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
                     {/* Contact Information */}
-                    <div className={`order-2 lg:order-1`}>
+                    <div data-aos='fade-left' className={`order-2 lg:order-1`}>
                         <div className="h-full border-2 border-gray-200 dark:border-gray-700 rounded-lg p-4">
                             <h3 className="text-xl sm:text-2xl font-bold theme-text-primary mb-6">
                                 Let's Connect
@@ -196,7 +195,7 @@ const ContactSection = () => {
                     </div>
 
                     {/* Contact Form */}
-                    <div className={`order-1 lg:order-2 pr-4`}>
+                    <div data-aos='fade-right' className={`order-1 lg:order-2 pr-4`}>
                         <div className="lg:sticky lg:top-8">
                             <h3 className="text-xl sm:text-2xl font-bold theme-text-primary mb-6">
                                 Send Message

@@ -45,7 +45,7 @@ const HeroSection = () => {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-4rem)]">
                     {/* Left Content */}
-                    <div className="order-2 lg:order-1">
+                    <div data-aos="fade-right" className="order-2 lg:order-1">
                         {/* Name and Title */}
                         <div className={`mb-6`}>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold theme-text-primary mb-4 leading-tight">
@@ -105,7 +105,7 @@ const HeroSection = () => {
                     </div>
 
                     {/* Right Image */}
-                    <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <div data-aos="fade-left" className="order-1 lg:order-2 flex justify-center lg:justify-end">
                         <div>
                             <div className="relative">
                                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden ring-4 ring-primary-500/20 shadow-2xl">

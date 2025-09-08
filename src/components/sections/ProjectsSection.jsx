@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { Card, Button, Modal } from '../UI';
 import { projects } from '../../data/portfolioData';
-import { useIntersectionObserver } from '../../hooks';
 
 const ProjectsSection = () => {
-    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
     const [selectedProject, setSelectedProject] = useState(null);
-    const [filter, setFilter] = useState('all');
+    const [filter, setFilter] = useState('All');
 
-    const categories = ['all', 'Full Stack', 'Frontend', 'Backend'];
-    const filteredProjects = filter === 'all'
+    const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
+    const filteredProjects = filter === 'All'
         ? projects
         : projects.filter(project => project.category === filter);
 
@@ -20,13 +18,12 @@ const ProjectsSection = () => {
     return (
         <section
             id="projects"
-            ref={ref}
             className="py-20 theme-bg-secondary"
         >
             <div className="container mx-auto px-4">
                 <div className="max-w-7xl mx-auto">
                     {/* Section Header */}
-                    <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div data-aos="fade-down" className={`text-center mb-16`}>
                         <h2 className="text-4xl md:text-5xl font-bold theme-text-primary mb-4">
                             Featured Projects
                         </h2>
@@ -37,7 +34,7 @@ const ProjectsSection = () => {
                     </div>
 
                     {/* Filter Buttons */}
-                    <div className={`flex flex-wrap justify-center gap-4 mb-12 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className={`flex flex-wrap justify-center gap-4 mb-12`}>
                         {categories.map((category) => (
                             <button
                                 key={category}
@@ -56,8 +53,9 @@ const ProjectsSection = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {filteredProjects.map((project, index) => (
                             <div
+                                data-aos="fade-up"
+                                data-aos-delay={`${400 + index * 100}ms`}
                                 key={project.id}
-                                className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                                 style={{ transitionDelay: `${400 + index * 150}ms` }}
                             >
                                 <Card className="h-full group">

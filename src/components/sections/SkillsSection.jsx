@@ -26,7 +26,7 @@ const SkillsSection = () => {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-7xl mx-auto">
                     {/* Section Header */}
-                    <div className={`text-center mb-16 `}>
+                    <div data-aos="fade-down" className={`text-center mb-16 `}>
                         <h2 className="text-4xl md:text-5xl font-bold theme-text-primary mb-4">
                             Technical Skills
                         </h2>
@@ -96,61 +96,6 @@ const SkillsSection = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
-
-                    {/* Skills Statistics Summary */}
-                    <div className={`mt-16 `}>
-                        <Card className="p-8">
-                            <h3 className="text-2xl font-bold theme-text-primary mb-8 text-center">
-                                Skills Overview
-                            </h3>
-
-                            {/* Stats Grid */}
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-                                <div className="text-center p-6 rounded-xl theme-bg-secondary">
-                                    <div className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-2">
-                                        {skills[activeCategory]?.filter(s => s.level >= 90).length || 0}
-                                    </div>
-                                    <div className="text-sm theme-text-secondary">Expert Level</div>
-                                </div>
-                                <div className="text-center p-6 rounded-xl theme-bg-secondary">
-                                    <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
-                                        {skills[activeCategory]?.filter(s => s.level >= 75 && s.level < 90).length || 0}
-                                    </div>
-                                    <div className="text-sm theme-text-secondary">Advanced</div>
-                                </div>
-                                <div className="text-center p-6 rounded-xl theme-bg-secondary">
-                                    <div className="text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-2">
-                                        {skills[activeCategory]?.filter(s => s.level >= 60 && s.level < 75).length || 0}
-                                    </div>
-                                    <div className="text-sm theme-text-secondary">Intermediate</div>
-                                </div>
-                                <div className="text-center p-6 rounded-xl theme-bg-secondary">
-                                    <div className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-2">
-                                        {Math.round(skills[activeCategory]?.reduce((acc, skill) => acc + skill.level, 0) / skills[activeCategory]?.length) || 0}%
-                                    </div>
-                                    <div className="text-sm theme-text-secondary">Avg. Proficiency</div>
-                                </div>
-                            </div>
-
-                            {/* Top Skills Preview */}
-                            <div className="text-center">
-                                <h4 className="text-lg font-semibold theme-text-primary mb-4">Top Skills in {categories.find(c => c.key === activeCategory)?.label}</h4>
-                                <div className="flex flex-wrap justify-center gap-3">
-                                    {skills[activeCategory]?.slice(0, 5).map((skill, index) => (
-                                        <div
-                                            key={skill.name}
-                                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30"
-                                            style={{ animationDelay: `${1000 + index * 100}ms` }}
-                                        >
-                                            {skill.icon && <skill.icon className="w-4 h-4" />}
-                                            <span className="text-sm font-medium theme-text-primary">{skill.name}</span>
-                                            <span className="text-xs theme-text-secondary">{skill.level}%</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </Card>
                     </div>
 
                     {/* Additional Info */}

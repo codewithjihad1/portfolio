@@ -49,6 +49,8 @@ const SkillsCard = ({ skill, index }) => {
             style={{ animationDelay: `${600 + index * 100}ms` }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            data-aos="fade-up"
+            data-aos-delay={`${600 + index * 100}ms`}
         >
             {/* Card Container */}
             <div className={`
