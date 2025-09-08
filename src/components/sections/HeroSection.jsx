@@ -1,9 +1,7 @@
 import { Button } from '../UI';
 import { personalInfo, socialLinks } from '../../data/portfolioData';
-import { useIntersectionObserver } from '../../hooks';
 
 const HeroSection = () => {
-    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.3 });
 
     const handleDownloadResume = () => {
         // Create a link element and trigger download
@@ -33,7 +31,6 @@ const HeroSection = () => {
     return (
         <section
             id="home"
-            ref={ref}
             className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
         >
             {/* Animated Background */}
@@ -50,7 +47,7 @@ const HeroSection = () => {
                     {/* Left Content */}
                     <div className="order-2 lg:order-1">
                         {/* Name and Title */}
-                        <div className={`mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className={`mb-6`}>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold theme-text-primary mb-4 leading-tight">
                                 Hi, I'm{' '}
                                 <span className="bg-gradient-to-r from-primary-600 via-purple-600 to-secondary-600 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] block lg:inline">
@@ -66,7 +63,7 @@ const HeroSection = () => {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className={`mb-8 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className={`mb-8`}>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Button
                                     onClick={handleViewProjects}
@@ -85,7 +82,7 @@ const HeroSection = () => {
                         </div>
 
                         {/* Social Links */}
-                        <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div >
                             <div className="flex gap-4">
                                 {socialLinks.map((social, index) => (
                                     <a
@@ -109,7 +106,7 @@ const HeroSection = () => {
 
                     {/* Right Image */}
                     <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-                        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div>
                             <div className="relative">
                                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden ring-4 ring-primary-500/20 shadow-2xl">
                                     <img

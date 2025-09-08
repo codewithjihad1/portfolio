@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { Card } from '../UI';
 import { contactInfo, socialLinks } from '../../data/portfolioData';
-import { useIntersectionObserver } from '../../hooks';
 import { validateEmail, copyToClipboard } from '../../utils/helpers';
 
 const ContactSection = () => {
-    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -105,12 +103,11 @@ const ContactSection = () => {
     return (
         <section
             id="contact"
-            ref={ref}
             className="py-16 sm:py-20 theme-bg-primary"
         >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
                 {/* Section Header */}
-                <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className={`text-center mb-12 sm:mb-16 `}>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold theme-text-primary mb-4">
                         Get In Touch
                     </h2>
@@ -120,10 +117,10 @@ const ContactSection = () => {
                     <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 mx-auto rounded-full mt-4"></div>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto px-4">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
                     {/* Contact Information */}
-                    <div className={`order-2 lg:order-1 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-                        <Card className="h-full">
+                    <div className={`order-2 lg:order-1`}>
+                        <div className="h-full border-2 border-gray-200 dark:border-gray-700 rounded-lg p-4">
                             <h3 className="text-xl sm:text-2xl font-bold theme-text-primary mb-6">
                                 Let's Connect
                             </h3>
@@ -195,11 +192,11 @@ const ContactSection = () => {
                                     </div>
                                 </div>
                             </div>
-                        </Card>
+                        </div>
                     </div>
 
                     {/* Contact Form */}
-                    <div className={`order-1 lg:order-2 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+                    <div className={`order-1 lg:order-2 pr-4`}>
                         <div className="lg:sticky lg:top-8">
                             <h3 className="text-xl sm:text-2xl font-bold theme-text-primary mb-6">
                                 Send Message
