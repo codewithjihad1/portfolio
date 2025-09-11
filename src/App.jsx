@@ -11,7 +11,7 @@ function App() {
       duration: 1000,
       easing: 'ease',
       once: false,
-      mirror: false
+      mirror: true
     });
   }, []);
 

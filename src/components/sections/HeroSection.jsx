@@ -1,5 +1,6 @@
 import { Button } from '../UI';
 import { personalInfo, socialLinks } from '../../data/portfolioData';
+import { Typewriter } from 'react-simple-typewriter';
 
 const HeroSection = () => {
 
@@ -51,11 +52,22 @@ const HeroSection = () => {
                             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold theme-text-primary mb-4 leading-tight">
                                 Hi, I'm{' '}
                                 <span className="bg-gradient-to-r from-primary-600 via-purple-600 to-secondary-600 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] block lg:inline">
-                                    {personalInfo.name}
+                                    Jihad
                                 </span>
                             </h1>
                             <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold theme-text-primary mb-3">
-                                {personalInfo.title}
+                                I'm a {" "}
+                                <span className="font-kode-mono bg-gradient-to-r from-primary-600 via-purple-600 to-secondary-600 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto] block lg:inline">
+                                    <Typewriter
+                                        words={['Frontend Developer', 'JavaScript Enthusiast', 'React Developer', 'Tech Enthusiast']}
+                                        loop={5}
+                                        cursor
+                                        cursorStyle='_'
+                                        typeSpeed={70}
+                                        deleteSpeed={50}
+                                        delaySpeed={1000}
+                                    />
+                                </span>
                             </h2>
                             <p className="text-lg md:text-xl theme-text-secondary max-w-lg leading-relaxed">
                                 {personalInfo.subtitle}
