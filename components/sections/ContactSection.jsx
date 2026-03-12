@@ -16,16 +16,30 @@ const initialForm = { name: '', email: '', subject: '', message: '' };
 export default function ContactSection() {
     const [form, setForm] = useState(initialForm);
     const [status, setStatus] = useState('idle');
+    const [error, setError] = useState('');
 
     const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('sending');
-        setTimeout(() => {
+        setError('');
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form),
+            });
+            if (!res.ok) {
+                const data = await res.json();
+                throw new Error(data.error || 'Failed to send message.');
+            }
             setStatus('sent');
             setForm(initialForm);
-        }, 1500);
+        } catch (err) {
+            setError(err.message);
+            setStatus('idle');
+        }
     };
 
     return (
@@ -157,10 +171,15 @@ export default function ContactSection() {
                                         className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-600 text-sm resize-none"
                                     />
                                 </div>
+                                {error && (
+                                    <p className="text-sm text-red-500 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl px-4 py-3">
+                                        ⚠️ {error}
+                                    </p>
+                                )}
                                 <button
                                     type="submit"
                                     disabled={status === 'sending'}
-                                    className="w-full py-3.5 bg-primary-600 hover:bg-primary-600 disabled:opacity-70 text-white font-semibold rounded-xl transition-colors shadow-lg shadow-primary-600/25">
+                                    className="w-full py-3.5 bg-primary-600 hover:bg-primary-700 disabled:opacity-70 text-white font-semibold rounded-xl transition-colors shadow-lg shadow-primary-600/25">
                                     {status === 'sending' ? 'Sending...' : 'Send Message'}
                                 </button>
                             </form>
