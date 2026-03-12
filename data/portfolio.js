@@ -46,7 +46,7 @@ export const skills = {
 };
 
 export const levelColor = {
-    Expert: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+    Expert: 'bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300',
     Advanced: 'bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300',
     Intermediate: 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
     Beginner: 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400',
@@ -71,7 +71,7 @@ export const projects = [
             'A modern responsive car rental app with Firebase auth, Google OAuth, JWT, car management, date-based booking system, and dark/light theme toggle.',
         technologies: ['React', 'Tailwind CSS', 'Firebase', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
         category: 'Full Stack',
-        gradient: 'from-blue-500 to-indigo-600',
+        gradient: 'from-primary-600 to-indigo-600',
         liveDemo: 'https://car-rental-c9294.web.app/',
         github: 'https://github.com/codewithjihad1/car-rental',
     },
