@@ -5,7 +5,7 @@ import { personalInfo } from "@/data/portfolio";
 
 const stats = [
     { value: "3+", label: "QUESTS DONE", color: "text-neon" },
-    { value: "2+", label: "YEARS PLAYED", color: "text-aqua" },
+    { value: "1+", label: "YEARS PLAYED", color: "text-aqua" },
     { value: "10+", label: "WEAPONS", color: "text-gold" },
     { value: "100%", label: "DEDICATION", color: "text-pixie" },
 ];
