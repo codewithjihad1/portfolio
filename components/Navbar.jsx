@@ -5,12 +5,12 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useEffect, useState } from 'react';
 
 const navLinks = [
-    { href: '#hero', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#hero', label: 'PLAY', icon: '▶' },
+    { href: '#about', label: 'PLAYER', icon: '☺' },
+    { href: '#experience', label: 'QUESTS', icon: '⚔' },
+    { href: '#skills', label: 'SKILLS', icon: '✦' },
+    { href: '#projects', label: 'GAMES', icon: '▣' },
+    { href: '#contact', label: 'CONTACT', icon: '✉' },
 ];
 
 export default function Navbar() {
@@ -26,27 +26,40 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                scrolled
-                    ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm border-b border-slate-200/50 dark:border-slate-700/50'
-                    : 'bg-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 border-b-2 transition-all duration-300 ${
+                scrolled ? 'bg-void/95 backdrop-blur-sm border-line' : 'bg-transparent border-transparent'
             }`}>
-            <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
-                    {/* Logo */}
-                    <a href="#hero" className="font-press text-sm sm:text-base">
-                        <span className="text-primary-600">Jihad</span>
-                        <span className="text-slate-800 dark:text-white">.</span>
+            {/* scanline texture */}
+            <div className="scanlines absolute inset-0 pointer-events-none max-sm:hidden" aria-hidden="true" />
+
+            <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div className="flex items-center justify-between h-14">
+                    {/* Player 1 badge */}
+                    <a href="#hero" className="flex items-center gap-3 group">
+                        <span className="font-press text-neon text-xs glow-neon">JIHAD</span>
+                        <span className="hidden sm:inline font-press text-[9px] text-mute tracking-widest">
+                            PLAYER 1
+                        </span>
+                        <span className="flex gap-0.5" aria-hidden="true">
+                            {[0, 1, 2].map((i) => (
+                                <span key={i} className="text-rose-400 text-[10px] animate-pulse" style={{ animationDelay: `${i * 0.3}s` }}>
+                                    ♥
+                                </span>
+                            ))}
+                        </span>
                     </a>
 
-                    {/* Desktop Links */}
-                    <div className="hidden md:flex items-center gap-1">
-                        {navLinks.map((link) => (
+                    {/* Desktop menu — like an arcade attract screen */}
+                    <div className="hidden md:flex items-center gap-0.5">
+                        {navLinks.map(({ href, label, icon }) => (
                             <a
-                                key={link.href}
-                                href={link.href}
-                                className="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                {link.label}
+                                key={href}
+                                href={href}
+                                className="group px-3 py-2 font-press text-[9px] text-mute hover:text-ink transition-colors">
+                                <span className="text-neon opacity-0 group-hover:opacity-100 transition-opacity mr-1">
+                                    {icon}
+                                </span>
+                                {label}
                             </a>
                         ))}
                     </div>
@@ -56,40 +69,41 @@ export default function Navbar() {
                         <button
                             onClick={toggleTheme}
                             aria-label="Toggle theme"
-                            className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            className="pixel-press bg-panel p-2 text-gold cursor-pointer">
                             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
                         </button>
                         <a
                             href="#contact"
-                            className="hidden md:inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-600 text-white font-press text-xs rounded-lg transition-colors">
-                            Hire Me
+                            className="hidden md:inline-flex pixel-press bg-gold text-void font-press text-[9px] px-4 py-2 items-center hover:bg-gold">
+                            ▶ START
                         </a>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                            className="md:hidden pixel-press bg-panel p-2 text-ink cursor-pointer"
                             aria-label="Toggle menu">
                             {isOpen ? <XIcon /> : <MenuIcon />}
                         </button>
                     </div>
                 </div>
 
-                {/* Mobile Menu */}
+                {/* Mobile menu */}
                 {isOpen && (
-                    <div className="md:hidden border-t border-slate-200 dark:border-slate-700 py-3 space-y-1">
-                        {navLinks.map((link) => (
+                    <div className="md:hidden pixel-panel bg-panel mb-3 space-y-0.5 py-2">
+                        {navLinks.map(({ href, label, icon }) => (
                             <a
-                                key={link.href}
-                                href={link.href}
+                                key={href}
+                                href={href}
                                 onClick={() => setIsOpen(false)}
-                                className="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-all">
-                                {link.label}
+                                className="flex items-center gap-2 px-4 py-2.5 font-press text-[10px] text-mute hover:text-ink hover:bg-void2 transition-colors">
+                                <span className="text-neon">{icon}</span>
+                                {label}
                             </a>
                         ))}
                         <a
                             href="#contact"
                             onClick={() => setIsOpen(false)}
-                            className="block mt-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-600 text-white font-press text-xs rounded-lg transition-colors text-center">
-                            Hire Me
+                            className="block mt-1 mx-2 py-2.5 bg-gold text-void font-press text-[10px] text-center">
+                            ▶ START
                         </a>
                     </div>
                 )}

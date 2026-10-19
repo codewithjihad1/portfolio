@@ -11,53 +11,96 @@ const socialIcons = {
     Email: EmailIcon,
 };
 
+/* floating 8-bit tiles */
+const sprites = [
+    { cls: 'top-24 left-[8%] w-5 h-5 bg-neon', delay: '0s' },
+    { cls: 'top-1/3 right-[12%] w-4 h-4 bg-pixie', delay: '0.6s' },
+    { cls: 'top-[60%] left-[15%] w-3 h-3 bg-gold', delay: '1.1s' },
+    { cls: 'bottom-32 right-[20%] w-5 h-5 bg-aqua', delay: '1.6s' },
+    { cls: 'top-40 right-[6%] w-3 h-3 bg-grape', delay: '2s' },
+    { cls: 'bottom-24 left-[6%] w-4 h-4 bg-pixie', delay: '0.3s' },
+];
+
+const marqueeWords = [
+    'MD JIHAD HOSSAIN',
+    'FRONTEND DEVELOPER',
+    'REACT',
+    'NEXT.JS',
+    'TYPESCRIPT',
+    'TAILWIND CSS',
+    'PRESS START',
+    'GAME ON',
+];
+
 export default function HeroSection() {
     const typedText = useTypewriter(personalInfo.roles);
 
     return (
-        <section id="hero" className="min-h-screen flex items-center bg-white dark:bg-slate-950 pt-16">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
-                <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
-                    {/* Text Content */}
+        <section
+            id="hero"
+            className="min-h-screen flex flex-col relative overflow-hidden bg-void pt-24">
+            {/* pixel sprites */}
+            {sprites.map(({ cls, delay }, i) => (
+                <span
+                    key={i}
+                    aria-hidden="true"
+                    className={`absolute animate-floaty opacity-70 ${cls}`}
+                    style={{ animationDelay: delay }}
+                />
+            ))}
+
+            {/* HUD row */}
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div className="flex justify-between items-center font-press text-[9px] sm:text-[10px] text-mute tracking-widest mb-2">
+                    <span>PLAYER: MD_JIHAD</span>
+                    <span className="hidden sm:inline">WORLD 1-1</span>
+                    <span className="text-gold glow-gold">×3 ♥</span>
+                </div>
+            </div>
+
+            {/* Main stage */}
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1 flex items-center">
+                <div className="flex flex-col-reverse lg:flex-row items-center gap-14 lg:gap-20 w-full">
+                    {/* Left column */}
                     <div className="flex-1 text-center lg:text-left">
-                        <span className="inline-block px-4 py-1.5 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-semibold rounded-full mb-5 tracking-wide">
-                            👋 Hello, I&apos;m
+                        <span className="inline-flex items-center gap-2 pixel-press bg-panel px-4 py-2 font-press text-[8px] sm:text-[10px] text-neon mb-8 cursor-default">
+                            <span className="w-2 h-2 bg-neon animate-pulse" />
+                            AVAILABLE FOR WORK
                         </span>
 
-                        <h1 className="font-press text-2xl sm:text-3xl lg:text-5xl text-slate-900 dark:text-white mb-4 leading-relaxed">
-                            MD Jihad
+                        <h1 className="font-press text-[26px] sm:text-4xl lg:text-[40px] leading-relaxed mb-6 animate-flicker">
+                            <span className="text-ink">MD JIHAD</span>
                             <br />
-                            <span className="gradient-text">Hossain</span>
+                            <span className="text-neon glow-neon">HOSSAIN</span>
                         </h1>
 
-                        {/* Typewriter */}
-                        <div className="h-10 flex items-center justify-center lg:justify-start mb-6">
-                            <span className="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 font-medium">
-                                {typedText}
-                                <span className="cursor-blink text-primary-600 ml-0.5">|</span>
-                            </span>
+                        {/* Terminal typewriter */}
+                        <div className="font-mono text-base sm:text-lg text-aqua mb-6 h-7 flex items-center justify-center lg:justify-start">
+                            <span className="text-mute mr-1">&gt;</span>
+                            {typedText}
+                            <span className="cursor-blink text-neon ml-0.5">▮</span>
                         </div>
 
-                        <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed max-w-lg mb-8 mx-auto lg:mx-0">
+                        <p className="text-mute font-mono text-sm sm:text-base leading-relaxed max-w-lg mb-9 mx-auto lg:mx-0">
                             {personalInfo.bio}
                         </p>
 
-                        {/* CTA Buttons */}
-                        <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10">
+                        {/* CTA buttons */}
+                        <div className="flex flex-wrap gap-5 justify-center lg:justify-start mb-10">
                             <a
                                 href="#contact"
-                                className="px-7 py-3.5 bg-primary-600 hover:bg-primary-600 text-white font-press text-xs sm:text-sm rounded-xl shadow-lg shadow-primary-600/25 transition-all hover:-translate-y-0.5">
-                                Hire Me
+                                className="pixel-press bg-neon text-void font-press text-[10px] sm:text-xs px-6 py-3.5 hover:bg-neon cursor-pointer">
+                                ▶ START GAME
                             </a>
                             <a
                                 href="#projects"
-                                className="px-7 py-3.5 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-primary-600 hover:text-primary-600 dark:hover:border-primary-400 dark:hover:text-primary-400 font-press text-xs sm:text-sm rounded-xl transition-all hover:-translate-y-0.5">
-                                View Projects
+                                className="pixel-press bg-panel text-ink font-press text-[10px] sm:text-xs px-6 py-3.5 cursor-pointer">
+                                VIEW LEVELS
                             </a>
                         </div>
 
-                        {/* Social Links */}
-                        <div className="flex gap-3 justify-center lg:justify-start">
+                        {/* Social links — pixel sockets */}
+                        <div className="flex gap-4 justify-center lg:justify-start">
                             {socialLinks.map(({ name, url }) => {
                                 const Icon = socialIcons[name];
                                 return Icon ? (
@@ -67,37 +110,68 @@ export default function HeroSection() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={name}
-                                        className="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 dark:hover:text-white transition-all hover:-translate-y-0.5">
-                                        <Icon />
+                                        className="pixel-press w-11 h-11 flex items-center justify-center bg-panel text-mute hover:text-neon cursor-pointer">
+                                        <Icon className="w-5 h-5" />
                                     </a>
                                 ) : null;
                             })}
                         </div>
                     </div>
 
-                    {/* Avatar */}
+                    {/* Right — avatar in a pixel frame */}
                     <div className="flex-shrink-0 relative">
-                        <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-600 via-primary-400 to-emerald-400 p-1.5 shadow-2xl shadow-primary-600/30">
-                                <div className="w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                        src={personalInfo.avatar}
-                                        alt="MD Jihad Hossain"
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Availability badge */}
-                            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-1.5 rounded-full shadow-md">
-                                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                                    Available for work
-                                </span>
+                        <span
+                            aria-hidden="true"
+                            className="absolute -top-5 -right-5 w-full h-full bg-pixie -z-0 translate-x-0"
+                        />
+                        <span
+                            aria-hidden="true"
+                            className="absolute -bottom-5 -left-5 w-full h-full bg-aqua -z-0"
+                        />
+                        <div className="relative scanlines w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 border-4 border-line bg-panel animate-floaty">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src={personalInfo.avatar}
+                                alt="MD Jihad Hossain"
+                                className="w-full h-full object-cover"
+                            />
+                            {/* HUD label */}
+                            <div className="absolute bottom-0 inset-x-0 bg-line/90 px-3 py-2 font-press text-[7px] sm:text-[9px] text-void text-center tracking-wider">
+                                P1 · LV.99 FRONTEND DEV
                             </div>
                         </div>
+
+                        {/* availability chip */}
+                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 pixel-press bg-panel px-4 py-1.5">
+                            <span className="font-press text-[8px] text-ink tracking-wider">
+                                + UP &amp; READY
+                            </span>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            {/* scroll hint */}
+            <div className="pb-6 text-center" aria-hidden="true">
+                <span className="font-press text-[8px] sm:text-[10px] text-mute animate-pulse tracking-widest">
+                    ▼ SCROLL TO CONTINUE
+                </span>
+            </div>
+
+            {/* Marquee strip */}
+            <div className="border-y-2 border-line bg-gold py-2.5 overflow-hidden select-none">
+                <div className="flex whitespace-nowrap animate-marquee w-max">
+                    {[0, 1].map((n) => (
+                        <div key={n} className="flex">
+                            {marqueeWords.map((w, i) => (
+                                <span
+                                    key={i}
+                                    className="font-press text-[9px] sm:text-[10px] text-void mx-6 tracking-wider">
+                                    ★ {w}
+                                </span>
+                            ))}
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

@@ -1,79 +1,77 @@
+import SectionHeader from '@/components/SectionHeader';
 import { experience } from '@/data/portfolio';
 
-function ExperienceCard({ job, isLast }) {
+function QuestCard({ job, isLast }) {
     return (
-        <div className="relative flex gap-6">
-            {/* Timeline line + dot */}
+        <div className="relative flex gap-6 sm:gap-8">
+            {/* timeline */}
             <div className="flex flex-col items-center">
                 <div
-                    className={`w-4 h-4 rounded-full border-2 flex-shrink-0 mt-1 z-10 ${
-                        job.current
-                            ? 'bg-primary-600 border-primary-600 shadow-lg shadow-primary-600/40'
-                            : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-600'
+                    className={`w-4 h-4 border-2 border-line flex-shrink-0 z-10 rotate-45 ${
+                        job.current ? 'bg-neon glow-neon' : 'bg-void'
                     }`}
                 />
-                {!isLast && <div className="w-0.5 flex-1 bg-slate-200 dark:bg-slate-700 mt-1" />}
+                {!isLast && <div className="w-0.5 flex-1 bg-line mt-2" />}
             </div>
 
-            {/* Card */}
-            <div className="flex-1 pb-10">
-                <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow">
-                    {/* Header */}
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                        <div>
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white">{job.position}</h3>
-                            <p className="text-primary-600 font-semibold text-sm mt-0.5">{job.company}</p>
-                        </div>
-                        <div className="flex flex-col items-end gap-1.5">
-                            <span
-                                className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                                    job.current
-                                        ? 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400'
-                                        : 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-400'
-                                }`}>
-                                {job.current ? '● Current' : job.type}
-                            </span>
-                            <span className="text-xs text-slate-400 dark:text-slate-500">{job.location}</span>
-                        </div>
+            {/* quest card */}
+            <div className="flex-1 pb-12">
+                <div className="pixel-panel bg-panel">
+                    {/* card header strip */}
+                    <div className="flex items-center justify-between border-b-2 border-line px-5 py-2.5 bg-void">
+                        <span className="font-press text-[8px] sm:text-[9px] text-gold tracking-widest">
+                            ★ QUEST {String(job.id).padStart(2, '0')}
+                        </span>
+                        <span
+                            className={`font-press text-[7px] sm:text-[8px] px-2.5 py-1 border-2 border-line flex items-center gap-1.5 ${
+                                job.current ? 'bg-neon/15 text-neon' : 'bg-void2 text-mute'
+                            }`}>
+                            {job.current && (
+                                <span className="w-1.5 h-1.5 bg-neon animate-pulse" aria-hidden="true" />
+                            )}
+                            {job.current ? 'IN PROGRESS' : job.type.toUpperCase()}
+                        </span>
                     </div>
 
-                    {/* Duration */}
-                    <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
-                        <svg
-                            className="w-4 h-4 flex-shrink-0"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                            viewBox="0 0 24 24">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                            <line x1="16" y1="2" x2="16" y2="6" />
-                            <line x1="8" y1="2" x2="8" y2="6" />
-                            <line x1="3" y1="10" x2="21" y2="10" />
-                        </svg>
-                        {job.duration}
-                    </div>
+                    <div className="p-5 sm:p-6">
+                        <h3 className="font-press text-[10px] sm:text-xs text-ink">{job.position.toUpperCase()}</h3>
+                        <p className="font-mono text-sm text-aqua mt-2">
+                            @ {job.company} · {job.location}
+                        </p>
+                        <p className="font-mono text-xs text-mute mt-1.5">⏱ {job.duration}</p>
 
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-5">{job.description}</p>
+                        <p className="text-mute font-mono text-sm leading-relaxed mt-5">{job.description}</p>
 
-                    {/* Achievements */}
-                    <ul className="space-y-2 mb-5">
-                        {job.achievements.map((item, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                                <span className="text-primary-600 mt-0.5 flex-shrink-0">▹</span>
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
+                        {/* rewards */}
+                        <h4 className="font-press text-[8px] text-gold tracking-widest mt-6 mb-3">
+                            ◆ REWARDS EARNED:
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {job.achievements.map((item, i) => (
+                                <li
+                                    key={i}
+                                    className="flex items-start gap-2.5 text-mute font-mono text-sm leading-relaxed">
+                                    <span className="text-gold mt-0.5 flex-shrink-0" aria-hidden="true">
+                                        ★
+                                    </span>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
 
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
-                        {job.technologies.map((tech) => (
-                            <span
-                                key={tech}
-                                className="text-xs font-medium px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg">
-                                {tech}
-                            </span>
-                        ))}
+                        {/* loot */}
+                        <h4 className="font-press text-[8px] text-pixie glow-pixie tracking-widest mt-6 mb-3">
+                            ◆ LOOT / TECHNOLOGIES:
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                            {job.technologies.map((tech) => (
+                                <span
+                                    key={tech}
+                                    className="bg-void2 border-2 border-line px-2.5 py-1 font-mono text-[11px] text-ink">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,21 +81,18 @@ function ExperienceCard({ job, isLast }) {
 
 export default function ExperienceSection() {
     return (
-        <section id="experience" className="py-24 bg-slate-50 dark:bg-slate-900">
+        <section id="experience" className="py-24 bg-void2 border-y-2 border-line">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <span className="text-primary-600 font-semibold text-sm tracking-widest uppercase">My Journey</span>
-                    <h2 className="font-press text-xl sm:text-2xl text-slate-900 dark:text-white mt-3">Work Experience</h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
-                        My professional journey and the roles that have shaped my skills.
-                    </p>
-                </div>
+                <SectionHeader
+                    stage="STAGE 03"
+                    eyebrow="ADVENTURE HISTORY"
+                    title="Quest Log"
+                    sub="Every role is a quest. Every bug fixed, a monster slain."
+                />
 
-                {/* Timeline */}
                 <div className="max-w-3xl mx-auto">
                     {experience.map((job, index) => (
-                        <ExperienceCard key={job.id} job={job} isLast={index === experience.length - 1} />
+                        <QuestCard key={job.id} job={job} isLast={index === experience.length - 1} />
                     ))}
                 </div>
             </div>

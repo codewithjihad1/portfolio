@@ -1,15 +1,21 @@
 'use client';
 
-import { ClockIcon, EmailIcon, MapPinIcon, PhoneIcon } from '@/components/Icons';
+import { ClockIcon, EmailIcon, GitHubIcon, LinkedInIcon, MapPinIcon, PhoneIcon, TwitterIcon } from '@/components/Icons';
+import SectionHeader from '@/components/SectionHeader';
 import { contactInfo, socialLinks } from '@/data/portfolio';
 import { useState } from 'react';
 
 const contactCards = [
-    { icon: EmailIcon, label: 'Email', value: contactInfo.email, href: `mailto:${contactInfo.email}` },
-    { icon: PhoneIcon, label: 'Phone', value: contactInfo.phone, href: `tel:${contactInfo.phone}` },
-    { icon: MapPinIcon, label: 'Location', value: contactInfo.location, href: '#' },
-    { icon: ClockIcon, label: 'Response Time', value: contactInfo.responseTime, href: '#' },
+    { icon: EmailIcon, label: 'MAIL', value: contactInfo.email, href: `mailto:${contactInfo.email}` },
+    { icon: PhoneIcon, label: 'PHONE', value: contactInfo.phone, href: `tel:${contactInfo.phone}` },
+    { icon: MapPinIcon, label: 'MAP', value: contactInfo.location, href: '#' },
+    { icon: ClockIcon, label: 'RESPAWN TIME', value: contactInfo.responseTime, href: '#' },
 ];
+
+const socialIcons = { GitHub: GitHubIcon, LinkedIn: LinkedInIcon, Twitter: TwitterIcon, Email: EmailIcon };
+
+const inputClass =
+    'w-full px-4 py-3 bg-void border-2 border-line text-ink font-mono text-sm placeholder-mute/60 focus:outline-none focus:border-aqua focus:shadow-[0_0_10px_var(--aqua)] transition-shadow resize-none';
 
 const initialForm = { name: '', email: '', subject: '', message: '' };
 
@@ -43,147 +49,167 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="py-24 bg-white dark:bg-slate-950">
+        <section id="contact" className="py-24 bg-void2 border-t-2 border-line">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
-                <div className="text-center mb-16">
-                    <span className="text-primary-600 font-semibold text-sm tracking-widest uppercase">
-                        Get In Touch
-                    </span>
-                    <h2 className="font-press text-xl sm:text-2xl text-slate-900 dark:text-white mt-3">Contact Me</h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
-                        {contactInfo.availability}. Feel free to reach out!
-                    </p>
-                </div>
+                <SectionHeader
+                    stage="FINAL STAGE"
+                    eyebrow="TRANSMISSION"
+                    title="Contact Me"
+                    sub={`${contactInfo.availability}. Open a channel to Player 1 below.`}
+                />
 
                 <div className="grid lg:grid-cols-2 gap-12">
-                    {/* Left — Contact Cards + Social */}
-                    <div className="space-y-4">
+                    {/* Left — channel select menu */}
+                    <div className="space-y-5">
+                        <h3 className="font-press text-[9px] text-gold glow-gold tracking-widest">
+                            ◆ SELECT A CHANNEL:
+                        </h3>
                         {contactCards.map(({ icon: Icon, label, value, href }) => (
                             <a
                                 key={label}
                                 href={href}
-                                className="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-600 dark:hover:border-primary-400 transition-colors group">
-                                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors">
-                                    <Icon />
-                                </div>
-                                <div>
-                                    <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                                        {label}
-                                    </div>
-                                    <div className="text-slate-800 dark:text-slate-200 font-medium text-sm mt-0.5">
-                                        {value}
-                                    </div>
-                                </div>
+                                className="pixel-press bg-panel flex items-center gap-4 p-4 group hover:bg-panel cursor-pointer">
+                                <span className="w-10 h-10 flex items-center justify-center bg-void border-2 border-line text-aqua group-hover:text-neon flex-shrink-0 transition-colors">
+                                    <Icon className="w-4 h-4" />
+                                </span>
+                                <span className="min-w-0">
+                                    <span className="block font-press text-[7px] text-pixie tracking-widest">
+                                        ▸ {label}
+                                    </span>
+                                    <span className="block text-ink font-mono text-sm mt-1 truncate">{value}</span>
+                                </span>
                             </a>
                         ))}
 
-                        {/* Social Links */}
-                        <div className="pt-4">
-                            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">
-                                Connect With Me
-                            </p>
-                            <div className="flex gap-3">
-                                {socialLinks.map(({ name, url }) => (
-                                    <a
-                                        key={name}
-                                        href={url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="px-4 py-2 text-sm font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-primary-600 hover:text-white rounded-xl transition-colors">
-                                        {name}
-                                    </a>
-                                ))}
+                        {/* join party — socials */}
+                        <div className="pt-3">
+                            <h3 className="font-press text-[9px] text-grape tracking-widest mb-4">
+                                ◆ JOIN MY PARTY:
+                            </h3>
+                            <div className="flex gap-4 flex-wrap">
+                                {socialLinks.map(({ name, url }) => {
+                                    const Icon = socialIcons[name];
+                                    return Icon ? (
+                                        <a
+                                            key={name}
+                                            href={url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={`Join on ${name}`}
+                                            className="pixel-press w-11 h-11 flex items-center justify-center bg-panel text-mute hover:text-pixie">
+                                            <Icon className="w-5 h-5" />
+                                        </a>
+                                    ) : null;
+                                })}
                             </div>
                         </div>
                     </div>
 
-                    {/* Right — Form */}
-                    <div className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700">
-                        {status === 'sent' ? (
-                            <div className="text-center py-12">
-                                <div className="text-5xl mb-4">✅</div>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Message Sent!</h3>
-                                <p className="text-slate-500 dark:text-slate-400">
-                                    Thanks for reaching out. I&apos;ll get back to you soon.
-                                </p>
-                                <button
-                                    onClick={() => setStatus('idle')}
-                                    className="mt-6 px-5 py-2 text-sm font-semibold text-primary-600 border border-primary-600 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors">
-                                    Send Another
-                                </button>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="space-y-5">
-                                <div className="grid sm:grid-cols-2 gap-5">
-                                    <div>
-                                        <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                                            Name
-                                        </label>
-                                        <input
-                                            name="name"
-                                            value={form.name}
-                                            onChange={handleChange}
-                                            required
-                                            placeholder="Your name"
-                                            className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-600 text-sm"
-                                        />
+                    {/* Right — message console */}
+                    <div className="pixel-panel bg-panel">
+                        {/* window title bar */}
+                        <div className="flex items-center justify-between border-b-2 border-line bg-void px-4 py-2.5">
+                            <span className="font-press text-[8px] text-aqua tracking-widest">
+                                [ ] NEW_MESSAGE.EXE
+                            </span>
+                            <span className="flex gap-1.5" aria-hidden="true">
+                                <span className="w-2.5 h-2.5 bg-pixie" />
+                                <span className="w-2.5 h-2.5 bg-gold" />
+                                <span className="w-2.5 h-2.5 bg-neon" />
+                            </span>
+                        </div>
+
+                        <div className="p-5 sm:p-7">
+                            {status === 'sent' ? (
+                                <div className="text-center py-14">
+                                    <div className="font-press text-2xl sm:text-3xl text-neon glow-neon mb-5">
+                                        ★ LEVEL ★
                                     </div>
-                                    <div>
-                                        <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                                            Email
-                                        </label>
-                                        <input
-                                            name="email"
-                                            type="email"
-                                            value={form.email}
-                                            onChange={handleChange}
-                                            required
-                                            placeholder="your@email.com"
-                                            className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-600 text-sm"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                                        Subject
-                                    </label>
-                                    <input
-                                        name="subject"
-                                        value={form.subject}
-                                        onChange={handleChange}
-                                        required
-                                        placeholder="Project inquiry"
-                                        className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-600 text-sm"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                                        Message
-                                    </label>
-                                    <textarea
-                                        name="message"
-                                        value={form.message}
-                                        onChange={handleChange}
-                                        required
-                                        rows={5}
-                                        placeholder="Tell me about your project..."
-                                        className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-600 text-sm resize-none"
-                                    />
-                                </div>
-                                {error && (
-                                    <p className="text-sm text-red-500 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl px-4 py-3">
-                                        ⚠️ {error}
+                                    <div className="font-press text-xl sm:text-2xl text-ink mb-4">CLEARED!</div>
+                                    <p className="text-mute font-mono text-sm leading-relaxed">
+                                        Transmission received. Player 1 responds within 24 hours.
                                     </p>
-                                )}
-                                <button
-                                    type="submit"
-                                    disabled={status === 'sending'}
-                                    className="w-full py-3.5 bg-primary-600 hover:bg-primary-700 disabled:opacity-70 text-white font-semibold rounded-xl transition-colors shadow-lg shadow-primary-600/25">
-                                    {status === 'sending' ? 'Sending...' : 'Send Message'}
-                                </button>
-                            </form>
-                        )}
+                                    <button
+                                        onClick={() => setStatus('idle')}
+                                        className="pixel-press mt-8 px-6 py-3 bg-gold text-void font-press text-[9px] cursor-pointer hover:bg-gold">
+                                        ↺ PLAY AGAIN
+                                    </button>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} className="space-y-5">
+                                    <div className="grid sm:grid-cols-2 gap-5">
+                                        <div>
+                                            <label className="block font-press text-[7px] text-mute tracking-widest mb-2">
+                                                PLAYER NAME
+                                            </label>
+                                            <input
+                                                name="name"
+                                                value={form.name}
+                                                onChange={handleChange}
+                                                required
+                                                placeholder="your_name"
+                                                className={inputClass}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block font-press text-[7px] text-mute tracking-widest mb-2">
+                                                E-MAIL ADDRESS
+                                            </label>
+                                            <input
+                                                name="email"
+                                                type="email"
+                                                value={form.email}
+                                                onChange={handleChange}
+                                                required
+                                                placeholder="you@planet.space"
+                                                className={inputClass}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block font-press text-[7px] text-mute tracking-widest mb-2">
+                                            SUBJECT
+                                        </label>
+                                        <input
+                                            name="subject"
+                                            value={form.subject}
+                                            onChange={handleChange}
+                                            required
+                                            placeholder="PROJECT_QUEST"
+                                            className={inputClass}
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block font-press text-[7px] text-mute tracking-widest mb-2">
+                                            MESSAGE
+                                        </label>
+                                        <textarea
+                                            name="message"
+                                            value={form.message}
+                                            onChange={handleChange}
+                                            required
+                                            rows={5}
+                                            placeholder="Tell me about your quest..."
+                                            className={inputClass + ' h-auto'}
+                                        />
+                                    </div>
+                                    {error && (
+                                        <p className="font-mono text-sm text-pixie bg-pixie/10 border-2 border-pixie px-4 py-3">
+                                            ⚠ GAME OVER — {error}
+                                        </p>
+                                    )}
+                                    <button
+                                        type="submit"
+                                        disabled={status === 'sending'}
+                                        className="pixel-press w-full py-4 bg-neon text-void font-press text-[10px] sm:text-xs cursor-pointer disabled:opacity-70 hover:bg-neon">
+                                        {status === 'sending' ? '▒ TRANSMITTING...' : '▶ TRANSMIT'}
+                                    </button>
+                                    <p className="text-center font-press text-[7px] text-mute tracking-widest animate-pulse">
+                                        INSERT COIN · FREE MESSAGE
+                                    </p>
+                                </form>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,57 +1,74 @@
 import { ExternalLinkIcon, GitHubIcon } from '@/components/Icons';
+import SectionHeader from '@/components/SectionHeader';
 import { projects } from '@/data/portfolio';
 
-function ProjectCard({ project }) {
+/* cartridge color cycle */
+const cartridgeColors = ['text-aqua glow-aqua', 'text-pixie glow-pixie', 'text-gold glow-gold'];
+
+function ProjectCard({ project, index }) {
+    const color = cartridgeColors[index % cartridgeColors.length];
+
     return (
-        <div className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            {/* Thumbnail */}
-            <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-                <div className="text-center px-6">
-                    <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
-                    <span className="text-sm text-white/80 bg-white/20 px-3 py-1 rounded-full">{project.category}</span>
+        <div className="pixel-panel bg-panel flex flex-col transition-transform duration-200 hover:-translate-y-1">
+            {/* cartridge top */}
+            <div className="relative bg-void border-b-2 border-line px-5 pt-5">
+                {/* contacts on top of the cartridge */}
+                <div className="flex gap-1 mb-4" aria-hidden="true">
+                    {[...Array(6)].map((_, i) => (
+                        <span key={i} className="h-3 flex-1 bg-line/50" />
+                    ))}
                 </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+
+                <div className="scanlines border-2 border-line bg-void2 px-4 py-8 text-center">
+                    <h3 className={`font-press text-[10px] sm:text-xs ${color} leading-relaxed`}>
+                        {project.title.toUpperCase()}
+                    </h3>
+                    <span
+                        className={`inline-block mt-4 font-press text-[7px] px-2.5 py-1.5 border-2 border-line bg-void text-mute tracking-widest`}>
+                        {project.category.toUpperCase()}
+                    </span>
+                </div>
             </div>
 
-            {/* Content */}
-            <div className="p-6 flex flex-col flex-1">
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-5 flex-1">
+            {/* content */}
+            <div className="p-5 sm:p-6 flex flex-col flex-1">
+                <p className="text-mute font-mono text-[13px] leading-relaxed mb-5 flex-1">
                     {project.description}
                 </p>
 
-                {/* Tech Stack */}
+                {/* tech stack */}
                 <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.slice(0, 5).map((tech) => (
                         <span
                             key={tech}
-                            className="text-xs font-medium px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg">
+                            className="bg-void2 border-2 border-line px-2 py-0.5 font-mono text-[11px] text-ink">
                             {tech}
                         </span>
                     ))}
                     {project.technologies.length > 5 && (
-                        <span className="text-xs font-medium px-2.5 py-1 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 rounded-lg">
+                        <span className="bg-void2 border-2 border-line px-2 py-0.5 font-mono text-[11px] text-mute">
                             +{project.technologies.length - 5}
                         </span>
                     )}
                 </div>
 
-                {/* Links */}
-                <div className="flex gap-3">
+                {/* controls: SELECT / START */}
+                <div className="flex gap-4">
                     <a
                         href={project.liveDemo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-600 text-white text-sm font-semibold rounded-xl transition-colors">
-                        <ExternalLinkIcon />
-                        Live Demo
+                        className="pixel-press flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-neon text-void font-press text-[8px] sm:text-[9px] hover:bg-neon">
+                        <ExternalLinkIcon className="w-3.5 h-3.5" />
+                        ▶ PLAY
                     </a>
                     <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 px-4 py-2.5 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:border-primary-600 hover:text-primary-600 dark:hover:border-primary-400 dark:hover:text-primary-400 text-sm font-semibold rounded-xl transition-colors">
+                        className="pixel-press flex items-center justify-center gap-2 px-4 py-3 bg-panel text-ink font-press text-[8px] sm:text-[9px] hover:text-aqua">
                         <GitHubIcon className="w-4 h-4" />
-                        Code
+                        SOURCE
                     </a>
                 </div>
             </div>
@@ -61,33 +78,30 @@ function ProjectCard({ project }) {
 
 export default function ProjectsSection() {
     return (
-        <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-900">
+        <section id="projects" className="py-24 bg-void">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <span className="text-primary-600 font-semibold text-sm tracking-widest uppercase">My Work</span>
-                    <h2 className="font-press text-xl sm:text-2xl text-slate-900 dark:text-white mt-3">Featured Projects</h2>
-                    <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
-                        A selection of projects I&apos;ve built, showcasing my skills in full-stack development.
-                    </p>
-                </div>
+                <SectionHeader
+                    stage="STAGE 04"
+                    eyebrow="ARCADE CABINET"
+                    title="Featured Games"
+                    sub="Insert coin to preview. Click ▶ PLAY to run any game."
+                />
 
-                {/* Projects Grid */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {projects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-9">
+                    {projects.map((project, index) => (
+                        <ProjectCard key={project.id} project={project} index={index} />
                     ))}
                 </div>
 
-                {/* GitHub CTA */}
-                <div className="text-center mt-12">
+                {/* LOAD MORE */}
+                <div className="text-center mt-14">
                     <a
                         href="https://github.com/codewithjihad1"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:border-primary-600 hover:text-primary-600 dark:hover:border-primary-400 dark:hover:text-primary-400 font-semibold rounded-xl transition-all">
+                        className="pixel-press inline-flex items-center gap-3 px-7 py-4 bg-panel text-ink font-press text-[10px] sm:text-xs hover:text-grape">
                         <GitHubIcon />
-                        View All on GitHub
+                        LOAD MORE ROMs
                     </a>
                 </div>
             </div>

@@ -9,83 +9,81 @@ const socialIcons = {
 };
 
 const navLinks = [
-    { href: '#hero', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#hero', label: 'PLAY' },
+    { href: '#about', label: 'PLAYER' },
+    { href: '#experience', label: 'QUESTS' },
+    { href: '#skills', label: 'SKILLS' },
+    { href: '#projects', label: 'GAMES' },
+    { href: '#contact', label: 'CONTACT' },
 ];
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-900 dark:bg-slate-950 text-white py-12 border-t border-slate-800">
+        <footer className="bg-void border-t-2 border-line pt-16 pb-8 relative overflow-hidden">
+            {/* decorative pixel floor */}
+            <div
+                className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-neon via-gold to-pixie"
+                aria-hidden="true"
+            />
+
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid sm:grid-cols-3 gap-8 mb-10">
-                    {/* Brand */}
-                    <div>
-                        <a href="#hero" className="text-2xl font-bold">
-                            <span className="text-primary-600">Jihad</span>
-                            <span className="text-white">.</span>
-                        </a>
-                        <p className="text-slate-400 text-sm mt-3 leading-relaxed max-w-xs">
-                            Frontend Developer crafting modern, responsive web experiences with clean and efficient
-                            code.
-                        </p>
+                {/* GAME OVER screen */}
+                <div className="text-center mb-14">
+                    <div className="font-press text-xl sm:text-3xl text-pixie glow-pixie animate-flicker">
+                        GAME OVER?
                     </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-sm font-semibold uppercase tracking-widest text-slate-400 mb-4">
-                            Quick Links
-                        </h4>
-                        <ul className="space-y-2">
-                            {navLinks.map(({ href, label }) => (
-                                <li key={href}>
-                                    <a
-                                        href={href}
-                                        className="text-slate-400 hover:text-primary-400 text-sm transition-colors">
-                                        {label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
+                    <div className="font-press text-[9px] sm:text-[11px] text-mute mt-5 tracking-widest">
+                        NAH — IT&apos;S JUST CREDITS
                     </div>
-
-                    {/* Contact */}
-                    <div>
-                        <h4 className="text-sm font-semibold uppercase tracking-widest text-slate-400 mb-4">Contact</h4>
-                        <p className="text-slate-400 text-sm mb-1">{personalInfo.email}</p>
-                        <p className="text-slate-400 text-sm mb-4">{personalInfo.phone}</p>
-
-                        <div className="flex gap-3">
-                            {socialLinks.map(({ name, url }) => {
-                                const Icon = socialIcons[name];
-                                return Icon ? (
-                                    <a
-                                        key={name}
-                                        href={url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label={name}
-                                        className="p-2 rounded-lg bg-slate-800 hover:bg-primary-600 text-slate-400 hover:text-white transition-all">
-                                        <Icon className="w-4 h-4" />
-                                    </a>
-                                ) : null;
-                            })}
-                        </div>
+                    <div className="font-press text-[8px] sm:text-[10px] text-gold glow-gold mt-3 animate-pulse">
+                        ★ CONTINUE? INSERT COIN ★
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p className="text-slate-500 text-sm">
-                        © {new Date().getFullYear()} MD Jihad Hossain. All rights reserved.
+                {/* middle row: nav + socials */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-8 pb-10 border-b-2 border-line">
+                    <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+                        {navLinks.map(({ href, label }) => (
+                            <a
+                                key={href}
+                                href={href}
+                                className="font-press text-[9px] text-mute hover:text-neon transition-colors">
+                                {label}
+                            </a>
+                        ))}
+                    </div>
+
+                    <div className="flex gap-4">
+                        {socialLinks.map(({ name, url }) => {
+                            const Icon = socialIcons[name];
+                            return Icon ? (
+                                <a
+                                    key={name}
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={name}
+                                    className="pixel-press w-10 h-10 flex items-center justify-center bg-panel text-mute hover:text-gold">
+                                    <Icon className="w-4 h-4" />
+                                </a>
+                            ) : null;
+                        })}
+                    </div>
+                </div>
+
+                {/* credit roll */}
+                <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-mute">
+                    <p>
+                        © {new Date().getFullYear()} <span className="text-ink">MD JIHAD HOSSAIN</span> · TOP SCORE:{' '}
+                        <span className="text-neon glow-neon">999999</span>
                     </p>
-                    <p className="text-slate-500 text-sm">
-                        Built with <span className="text-primary-400 font-medium">Next.js</span> &{' '}
-                        <span className="text-primary-400 font-medium">Tailwind CSS</span>
+                    <p>
+                        BUILT WITH{' '}
+                        <span className="text-aqua font-medium">NEXT.JS</span> +{' '}
+                        <span className="text-aqua font-medium">TAILWIND</span> ON{' '}
+                        <span className="text-grape font-medium">CRT MODE</span>
                     </p>
+                    <p className="hidden lg:block">MAIL: {personalInfo.email}</p>
                 </div>
             </div>
         </footer>

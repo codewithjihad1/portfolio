@@ -1,37 +1,43 @@
 import { EmailIcon, MapPinIcon, PhoneIcon } from '@/components/Icons';
+import SectionHeader from '@/components/SectionHeader';
 import { personalInfo } from '@/data/portfolio';
 
 const stats = [
-    { value: '3+', label: 'Projects Built' },
-    { value: '2+', label: 'Years Learning' },
-    { value: '10+', label: 'Technologies' },
-    { value: '100%', label: 'Dedication' },
+    { value: '3+', label: 'QUESTS DONE', color: 'text-neon' },
+    { value: '2+', label: 'YEARS PLAYED', color: 'text-aqua' },
+    { value: '10+', label: 'WEAPONS', color: 'text-gold' },
+    { value: '100%', label: 'DEDICATION', color: 'text-pixie' },
 ];
 
 const hobbies = [
-    '🏀 Playing Basketball',
-    '🎨 Digital Art & Design',
-    '📚 Reading Tech Blogs',
-    '🎮 Gaming',
-    '🌱 Gardening',
+    { icon: '🏀', label: 'BASKETBALL' },
+    { icon: '🎨', label: 'PIXEL ART' },
+    { icon: '📚', label: 'TECH BLOGS' },
+    { icon: '🎮', label: 'GAMING' },
+    { icon: '🌱', label: 'GARDENING' },
 ];
 
 export default function AboutSection() {
     return (
-        <section id="about" className="py-24 bg-slate-50 dark:bg-slate-900">
+        <section id="about" className="py-24 bg-void2 border-y-2 border-line">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <span className="text-primary-600 font-semibold text-sm tracking-widest uppercase">
-                        Get To Know
-                    </span>
-                    <h2 className="font-press text-xl sm:text-2xl text-slate-900 dark:text-white mt-3">About Me</h2>
-                </div>
+                <SectionHeader
+                    stage="STAGE 01"
+                    eyebrow="PLAYER PROFILE"
+                    title="About Me"
+                    sub="Loading player data... Press ▶ to inspect."
+                />
 
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left — Avatar + Stats */}
-                    <div className="flex flex-col items-center gap-8">
-                        <div className="relative w-72 h-72 rounded-2xl overflow-hidden border-4 border-primary-600/20 shadow-2xl">
+                <div className="grid lg:grid-cols-2 gap-14 items-start">
+                    {/* Left — player card */}
+                    <div className="pixel-panel p-6 sm:p-8">
+                        <div className="flex items-center justify-between mb-6">
+                            <span className="font-press text-[9px] text-gold tracking-widest">PLAYER CARD</span>
+                            <span className="font-press text-[9px] text-neon tracking-widest">● ONLINE</span>
+                        </div>
+
+                        {/* avatar */}
+                        <div className="scanlines w-48 h-48 sm:w-56 sm:h-56 mx-auto border-4 border-line">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={personalInfo.avatar}
@@ -40,63 +46,74 @@ export default function AboutSection() {
                             />
                         </div>
 
-                        {/* Stats Grid */}
-                        <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
-                            {stats.map(({ value, label }) => (
-                                <div
-                                    key={label}
-                                    className="text-center bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm">
-                                    <div className="text-3xl font-bold text-primary-600">{value}</div>
-                                    <div className="text-sm text-slate-500 dark:text-slate-400 mt-1">{label}</div>
+                        <div className="text-center mt-5">
+                            <div className="font-press text-[10px] sm:text-xs text-ink">MD JIHAD HOSSAIN</div>
+                            <div className="font-mono text-xs text-mute mt-2">
+                                CLASS: {personalInfo.title}
+                            </div>
+                            <div className="font-mono text-xs text-mute mt-1">MAP: {personalInfo.location}</div>
+                        </div>
+
+                        {/* stats grid */}
+                        <div className="grid grid-cols-2 gap-4 mt-8">
+                            {stats.map(({ value, label, color }) => (
+                                <div key={label} className="bg-void border-2 border-line p-4 text-center">
+                                    <div className={`font-press text-sm sm:text-lg ${color}`}>{value}</div>
+                                    <div className="font-press text-[7px] sm:text-[8px] text-mute mt-2 tracking-wider">
+                                        {label}
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Right — Info */}
+                    {/* Right — story */}
                     <div>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                            Frontend Developer based in Bangladesh
+                        <h3 className="font-press text-xs sm:text-sm text-ink mb-6 leading-relaxed">
+                            ◆ A DEVELOPER BASED IN BANGLADESH
                         </h3>
-                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                            I&apos;m a passionate Frontend Developer with expertise in modern web technologies. My
-                            journey in programming started with curiosity about how websites work, and it has evolved
-                            into a deep passion for building scalable, user-centric applications.
+
+                        <p className="text-mute font-mono text-sm leading-relaxed mb-5">
+                            &nbsp;&nbsp;I&apos;m a passionate Frontend Developer with expertise in modern web
+                            technologies. My journey in programming started with curiosity about how websites
+                            work, and it has evolved into a deep passion for building scalable, user-centric
+                            applications.
                         </p>
-                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                            I particularly enjoy working on challenging problems that require creative solutions.
-                            Whether it&apos;s designing intuitive user interfaces or architecting clean code, I find
-                            satisfaction in every aspect of the development process.
+                        <p className="text-mute font-mono text-sm leading-relaxed mb-9">
+                            &nbsp;&nbsp;I particularly enjoy working on challenging problems that require creative
+                            solutions. Whether it&apos;s designing intuitive user interfaces or architecting clean
+                            code, I find satisfaction in every aspect of the development process.
                         </p>
 
-                        {/* Contact Details */}
-                        <div className="space-y-3 mb-8">
+                        {/* contact rows — menu select style */}
+                        <div className="space-y-3 mb-9 font-mono text-sm">
                             {[
                                 { icon: EmailIcon, text: personalInfo.email },
                                 { icon: PhoneIcon, text: personalInfo.phone },
                                 { icon: MapPinIcon, text: personalInfo.location },
                             ].map(({ icon: Icon, text }) => (
-                                <div key={text} className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                                    <Icon className="w-5 h-5 text-primary-600 flex-shrink-0" />
-                                    <span>{text}</span>
+                                <div key={text} className="flex items-center gap-3 text-ink">
+                                    <span className="w-8 h-8 flex items-center justify-center bg-panel border-2 border-line text-aqua flex-shrink-0">
+                                        <Icon className="w-4 h-4" />
+                                    </span>
+                                    <span className="break-all">{text}</span>
                                 </div>
                             ))}
                         </div>
 
-                        {/* Hobbies */}
-                        <div>
-                            <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">
-                                Hobbies & Interests
-                            </h4>
-                            <div className="flex flex-wrap gap-2">
-                                {hobbies.map((h) => (
-                                    <span
-                                        key={h}
-                                        className="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm rounded-lg">
-                                        {h}
-                                    </span>
-                                ))}
-                            </div>
+                        {/* inventory */}
+                        <h4 className="font-press text-[9px] text-gold glow-gold tracking-widest mb-4">
+                            ◆ INVENTORY: HOBBIES
+                        </h4>
+                        <div className="flex flex-wrap gap-3">
+                            {hobbies.map(({ icon, label }) => (
+                                <span
+                                    key={label}
+                                    className="pixel-press inline-flex items-center gap-2 bg-panel px-3 py-2 font-press text-[8px] text-ink cursor-default">
+                                    <span className="text-sm leading-none">{icon}</span>
+                                    {label}
+                                </span>
+                            ))}
                         </div>
                     </div>
                 </div>

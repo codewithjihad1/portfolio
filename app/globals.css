@@ -2,94 +2,240 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+/* ═══════════════════════════════════════════
+   ARCADE THEME TOKENS
+   Colors are CSS vars so light/dark just flip
+   ═══════════════════════════════════════════ */
+@theme inline {
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
-
-    /* Press Start 2P → font-press utility */
     --font-press: var(--font-press-start-2p), monospace;
 
-    /* Primary (green) color scale */
-    --color-primary-50: #f0fdf4;
-    --color-primary-100: #dcfce7;
-    --color-primary-200: #bbf7d0;
-    --color-primary-300: #86efac;
-    --color-primary-400: #4ade80;
-    --color-primary-500: #22c55e;
-    --color-primary-600: #16a34a;
-    --color-primary-700: #15803d;
-    --color-primary-800: #166534;
-    --color-primary-900: #14532d;
+    --color-void: var(--void);
+    --color-void2: var(--void2);
+    --color-panel: var(--panel);
+    --color-line: var(--line);
+    --color-ink: var(--ink);
+    --color-mute: var(--mute);
+    --color-neon: var(--neon);
+    --color-aqua: var(--aqua);
+    --color-pixie: var(--pixie);
+    --color-gold: var(--gold);
+    --color-grape: var(--grape);
 }
 
-* {
+:root {
+    /* Light mode — "daylight cartridge": cream bg, bold ink borders */
+    --void: #f6f3ff;
+    --void2: #ede9fd;
+    --panel: #ffffff;
+    --line: #241f47;
+    --ink: #241f47;
+    --mute: #6b639f;
+    --neon: #16a34a;
+    --aqua: #0e7490;
+    --pixie: #db2777;
+    --gold: #b45309;
+    --grape: #7c3aed;
+    --gridc: rgba(36, 31, 71, 0.06);
+    --scan: rgba(36, 31, 71, 0.06);
+}
+
+.dark {
+    /* Dark mode — "midnight arcade": deep space, neon glow */
+    --void: #0c0a1e;
+    --void2: #120f2b;
+    --panel: #1a1642;
+    --line: #3b3178;
+    --ink: #efedff;
+    --mute: #a49cdc;
+    --neon: #4ade80;
+    --aqua: #22d3ee;
+    --pixie: #f472b6;
+    --gold: #fbbf24;
+    --grape: #a78bfa;
+    --gridc: rgba(167, 139, 250, 0.05);
+    --scan: rgba(0, 0, 0, 0.25);
+}
+
+html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #ffffff;
-    color: #0f172a;
+    background-color: var(--void);
+    /* subtle blueprint grid */
+    background-image:
+        linear-gradient(var(--gridc) 1px, transparent 1px),
+        linear-gradient(90deg, var(--gridc) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: var(--ink);
     font-family: var(--font-geist-sans), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
-.dark body {
-    background-color: #0f172a;
-    color: #f8fafc;
+::selection {
+    background: var(--neon);
+    color: var(--void);
 }
 
-/* Custom scrollbar */
+section[id] {
+    scroll-margin-top: 5rem;
+}
+
+/* chunky square scrollbar */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--void2);
 }
-
 ::-webkit-scrollbar-thumb {
-    background: #22c55e;
-    border-radius: 9999px;
+    background: var(--grape);
+    border: 2px solid var(--void2);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--pixie);
 }
 
-/* Typewriter cursor blink */
-@keyframes blink {
+/* ═══════════════════════════════════════════
+   PIXEL COMPONENTS
+   ═══════════════════════════════════════════ */
 
+/* hard offset shadow — the "physical" arcade depth */
+.pixel-shadow {
+    box-shadow: 4px 4px 0 0 var(--line);
+}
+
+.pixel-panel {
+    background: var(--panel);
+    border: 2px solid var(--line);
+    box-shadow: 4px 4px 0 0 var(--line);
+}
+
+/* pressable arcade button mechanics */
+.pixel-press {
+    border: 2px solid var(--line);
+    box-shadow: 4px 4px 0 0 var(--line);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.pixel-press:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 var(--line);
+}
+.pixel-press:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 0 var(--line);
+}
+
+/* CRT scanline overlay — put on a `relative` container */
+.scanlines {
+    position: relative;
+    overflow: hidden;
+}
+.scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--scan) 0px,
+        var(--scan) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+}
+
+/* glowing text */
+.glow-neon {
+    text-shadow: 0 0 10px color-mix(in srgb, var(--neon) 70%, transparent);
+}
+.glow-aqua {
+    text-shadow: 0 0 10px color-mix(in srgb, var(--aqua) 70%, transparent);
+}
+.glow-pixie {
+    text-shadow: 0 0 10px color-mix(in srgb, var(--pixie) 70%, transparent);
+}
+.glow-gold {
+    text-shadow: 0 0 10px color-mix(in srgb, var(--gold) 70%, transparent);
+}
+
+/* arcade marquee */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.animate-marquee {
+    animation: marquee 22s linear infinite;
+}
+
+/* floating pixel sprites */
+@keyframes floaty {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(4deg);
+    }
+}
+.animate-floaty {
+    animation: floaty 4s ease-in-out infinite;
+}
+
+/* CRT flicker, mostly off */
+@keyframes flicker {
     0%,
     100% {
         opacity: 1;
     }
+    92% {
+        opacity: 1;
+    }
+    93% {
+        opacity: 0.7;
+    }
+    94% {
+        opacity: 1;
+    }
+    97% {
+        opacity: 0.85;
+    }
+}
+.animate-flicker {
+    animation: flicker 3s steps(1) infinite;
+}
 
+/* typewriter cursor */
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
     50% {
         opacity: 0;
     }
 }
-
 .cursor-blink {
     animation: blink 1s step-end infinite;
 }
 
-/* Gradient text */
-.gradient-text {
-    background: linear-gradient(135deg, #22c55e, #4ade80);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Section fade-in */
+/* scroll-in reveal */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(24px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
 }
