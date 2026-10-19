@@ -118,25 +118,7 @@ export const experience = [
             'Git',
             'Git Flow'
         ],
-    },
-    // {
-    //     id: 2,
-    //     position: 'Web Development Intern',
-    //     company: 'Startup Name',
-    //     location: 'Remote',
-    //     duration: 'Jun 2023 — Dec 2023',
-    //     type: 'Internship',
-    //     current: false,
-    //     description:
-    //         'Assisted in building web applications and gained hands-on experience with full-stack development.',
-    //     achievements: [
-    //         'Built 3 responsive landing pages that increased user engagement by 25%',
-    //         'Implemented RESTful APIs using Node.js and Express.js',
-    //         'Participated in agile development process and daily standups',
-    //         "Received 'Outstanding Intern' award for exceptional performance",
-    //     ],
-    //     technologies: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'MongoDB'],
-    // },
+    }
 ];
 
 export const contactInfo = {
