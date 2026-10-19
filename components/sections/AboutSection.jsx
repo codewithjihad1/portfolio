@@ -25,7 +25,7 @@ export default function AboutSection() {
                     <span className="text-primary-600 font-semibold text-sm tracking-widest uppercase">
                         Get To Know
                     </span>
-                    <h2 className="text-4xl font-bold text-slate-900 dark:text-white mt-2">About Me</h2>
+                    <h2 className="font-press text-xl sm:text-2xl text-slate-900 dark:text-white mt-3">About Me</h2>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-12 items-center">

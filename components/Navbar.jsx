@@ -34,7 +34,7 @@ export default function Navbar() {
             <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <a href="#hero" className="text-xl font-bold">
+                    <a href="#hero" className="font-press text-sm sm:text-base">
                         <span className="text-primary-600">Jihad</span>
                         <span className="text-slate-800 dark:text-white">.</span>
                     </a>
@@ -61,7 +61,7 @@ export default function Navbar() {
                         </button>
                         <a
                             href="#contact"
-                            className="hidden md:inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-600 text-white text-sm font-semibold rounded-lg transition-colors">
+                            className="hidden md:inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-600 text-white font-press text-xs rounded-lg transition-colors">
                             Hire Me
                         </a>
                         <button
@@ -88,7 +88,7 @@ export default function Navbar() {
                         <a
                             href="#contact"
                             onClick={() => setIsOpen(false)}
-                            className="block mt-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-600 text-white text-sm font-semibold rounded-lg transition-colors text-center">
+                            className="block mt-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-600 text-white font-press text-xs rounded-lg transition-colors text-center">
                             Hire Me
                         </a>
                     </div>

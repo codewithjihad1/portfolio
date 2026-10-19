@@ -66,7 +66,7 @@ export default function ProjectsSection() {
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <span className="text-primary-600 font-semibold text-sm tracking-widest uppercase">My Work</span>
-                    <h2 className="text-4xl font-bold text-slate-900 dark:text-white mt-2">Featured Projects</h2>
+                    <h2 className="font-press text-xl sm:text-2xl text-slate-900 dark:text-white mt-3">Featured Projects</h2>
                     <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
                         A selection of projects I&apos;ve built, showcasing my skills in full-stack development.
                     </p>

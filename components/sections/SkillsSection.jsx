@@ -33,7 +33,7 @@ export default function SkillsSection() {
                     <span className="text-primary-600 font-semibold text-sm tracking-widest uppercase">
                         What I Know
                     </span>
-                    <h2 className="text-4xl font-bold text-slate-900 dark:text-white mt-2">My Skills</h2>
+                    <h2 className="font-press text-xl sm:text-2xl text-slate-900 dark:text-white mt-3">My Skills</h2>
                     <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
                         Technologies and tools I work with to build modern, performant web applications.
                     </p>

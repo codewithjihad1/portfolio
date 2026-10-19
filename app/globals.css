@@ -1,10 +1,13 @@
 @import 'tailwindcss';
 
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
+
+    /* Press Start 2P → font-press utility */
+    --font-press: var(--font-press-start-2p), monospace;
 
     /* Primary (green) color scale */
     --color-primary-50: #f0fdf4;
@@ -51,10 +54,12 @@ body {
 
 /* Typewriter cursor blink */
 @keyframes blink {
+
     0%,
     100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
@@ -78,6 +83,7 @@ body {
         opacity: 0;
         transform: translateY(24px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

@@ -88,7 +88,7 @@ export default function ExperienceSection() {
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <span className="text-primary-600 font-semibold text-sm tracking-widest uppercase">My Journey</span>
-                    <h2 className="text-4xl font-bold text-slate-900 dark:text-white mt-2">Work Experience</h2>
+                    <h2 className="font-press text-xl sm:text-2xl text-slate-900 dark:text-white mt-3">Work Experience</h2>
                     <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">
                         My professional journey and the roles that have shaped my skills.
                     </p>

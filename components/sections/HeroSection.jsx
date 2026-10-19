@@ -24,7 +24,7 @@ export default function HeroSection() {
                             👋 Hello, I&apos;m
                         </span>
 
-                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-white mb-4 leading-tight">
+                        <h1 className="font-press text-2xl sm:text-3xl lg:text-5xl text-slate-900 dark:text-white mb-4 leading-relaxed">
                             MD Jihad
                             <br />
                             <span className="gradient-text">Hossain</span>
@@ -46,12 +46,12 @@ export default function HeroSection() {
                         <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10">
                             <a
                                 href="#contact"
-                                className="px-7 py-3.5 bg-primary-600 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-lg shadow-primary-600/25 transition-all hover:-translate-y-0.5">
+                                className="px-7 py-3.5 bg-primary-600 hover:bg-primary-600 text-white font-press text-xs sm:text-sm rounded-xl shadow-lg shadow-primary-600/25 transition-all hover:-translate-y-0.5">
                                 Hire Me
                             </a>
                             <a
                                 href="#projects"
-                                className="px-7 py-3.5 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-primary-600 hover:text-primary-600 dark:hover:border-primary-400 dark:hover:text-primary-400 font-semibold rounded-xl transition-all hover:-translate-y-0.5">
+                                className="px-7 py-3.5 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-primary-600 hover:text-primary-600 dark:hover:border-primary-400 dark:hover:text-primary-400 font-press text-xs sm:text-sm rounded-xl transition-all hover:-translate-y-0.5">
                                 View Projects
                             </a>
                         </div>
