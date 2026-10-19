@@ -26,8 +26,8 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 border-b-2 transition-all duration-300 ${
-                scrolled ? 'bg-void/95 backdrop-blur-sm border-line' : 'bg-transparent border-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+                scrolled ? 'bg-void/95 backdrop-blur-sm' : 'bg-transparent'
             }`}>
             {/* scanline texture */}
             <div className="scanlines absolute inset-0 pointer-events-none max-sm:hidden" aria-hidden="true" />

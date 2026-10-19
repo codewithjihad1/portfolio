@@ -23,7 +23,7 @@ export default function ScrollProgress() {
     return (
         <div
             aria-hidden="true"
-            className="fixed top-0 left-0 z-[60] h-1 bg-gradient-to-r from-neon via-gold to-pixie shadow-[0_0_8px_var(--neon)]"
+            className="fixed top-0 left-0 z-60 h-1 bg-linear-to-r from-neon via-gold to-pixie shadow-[0_0_8px_var(--neon)]"
             style={{ width: `${progress}%` }}
         />
     );
