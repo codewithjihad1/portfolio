@@ -1,3 +1,4 @@
+import Reveal from '@/components/Reveal';
 import SectionHeader from '@/components/SectionHeader';
 import { experience } from '@/data/portfolio';
 
@@ -92,7 +93,9 @@ export default function ExperienceSection() {
 
                 <div className="max-w-3xl mx-auto">
                     {experience.map((job, index) => (
-                        <QuestCard key={job.id} job={job} isLast={index === experience.length - 1} />
+                        <Reveal key={job.id}>
+                            <QuestCard job={job} isLast={index === experience.length - 1} />
+                        </Reveal>
                     ))}
                 </div>
             </div>

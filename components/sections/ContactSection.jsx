@@ -1,6 +1,7 @@
 'use client';
 
 import { ClockIcon, EmailIcon, GitHubIcon, LinkedInIcon, MapPinIcon, PhoneIcon, TwitterIcon } from '@/components/Icons';
+import Reveal from '@/components/Reveal';
 import SectionHeader from '@/components/SectionHeader';
 import { contactInfo, socialLinks } from '@/data/portfolio';
 import { useState } from 'react';
@@ -60,10 +61,11 @@ export default function ContactSection() {
 
                 <div className="grid lg:grid-cols-2 gap-12">
                     {/* Left — channel select menu */}
-                    <div className="space-y-5">
-                        <h3 className="font-press text-[9px] text-gold glow-gold tracking-widest">
-                            ◆ SELECT A CHANNEL:
-                        </h3>
+                    <Reveal>
+                        <div className="space-y-5">
+                            <h3 className="font-press text-[9px] text-gold glow-gold tracking-widest">
+                                ◆ SELECT A CHANNEL:
+                            </h3>
                         {contactCards.map(({ icon: Icon, label, value, href }) => (
                             <a
                                 key={label}
@@ -103,10 +105,12 @@ export default function ContactSection() {
                                 })}
                             </div>
                         </div>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Right — message console */}
-                    <div className="pixel-panel bg-panel">
+                    <Reveal delay={150}>
+                        <div className="pixel-panel bg-panel">
                         {/* window title bar */}
                         <div className="flex items-center justify-between border-b-2 border-line bg-void px-4 py-2.5">
                             <span className="font-press text-[8px] text-aqua tracking-widest">
@@ -211,6 +215,7 @@ export default function ContactSection() {
                             )}
                         </div>
                     </div>
+                    </Reveal>
                 </div>
             </div>
         </section>

@@ -1,6 +1,8 @@
+import Reveal from '@/components/Reveal';
+
 export default function SectionHeader({ stage, eyebrow, title, sub }) {
     return (
-        <div className="text-center mb-14">
+        <Reveal className="text-center mb-14">
             <div className="font-press text-[10px] sm:text-xs text-gold glow-gold tracking-wider">
                 ▶ {stage} — {eyebrow}
             </div>
@@ -17,6 +19,6 @@ export default function SectionHeader({ stage, eyebrow, title, sub }) {
                     {sub}
                 </p>
             )}
-        </div>
+        </Reveal>
     );
 }

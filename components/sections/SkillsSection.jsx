@@ -1,3 +1,4 @@
+import Reveal from '@/components/Reveal';
 import SectionHeader from '@/components/SectionHeader';
 import { skills } from '@/data/portfolio';
 
@@ -20,7 +21,7 @@ function SkillCategory({ title, emoji, items }) {
     return (
         <div className="pixel-panel p-6">
             {/* window title bar */}
-            <div className="flex items-center justify-between -m-0 mb-6 pb-3 border-b-2 border-line">
+            <div className="flex items-center justify-between m-0 mb-6 pb-3 border-b-2 border-line">
                 <h3 className="font-press text-[9px] sm:text-[10px] text-ink tracking-wider">
                     <span className="mr-2">{emoji}</span>
                     {title.toUpperCase()}
@@ -42,19 +43,20 @@ function SkillCategory({ title, emoji, items }) {
                                 <span className="font-press text-[7px] text-mute">{meta.tag}</span>
                             </div>
 
-                            {/* segmented XP bar */}
-                            <div className="flex gap-1" role="img" aria-label={`${name} — ${level}`}>
-                                {Array.from({ length: 10 }).map((_, i) => (
-                                    <span
-                                        key={i}
-                                        className={`h-2.5 flex-1 border ${
-                                            i < meta.blocks
-                                                ? 'bg-neon border-line'
-                                                : 'bg-void2 border-line/40'
-                                        }`}
-                                    />
-                                ))}
-                            </div>
+                {/* XP blocks scale in one-by-one when the card reveals */}
+                <div className="flex gap-1" role="img" aria-label={`${name} — ${level}`}>
+                    {Array.from({ length: 10 }).map((_, i) => (
+                        <span
+                            key={i}
+                            style={{ transitionDelay: `${i * 50}ms` }}
+                            className={`xp-block h-2.5 flex-1 border ${
+                                i < meta.blocks
+                                    ? 'bg-neon border-line'
+                                    : 'bg-void2 border-line/40'
+                            }`}
+                        />
+                    ))}
+                </div>
                         </div>
                     );
                 })}
@@ -75,13 +77,19 @@ export default function SkillsSection() {
                 />
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <SkillCategory title="Frontend" emoji="🎨" items={skills.frontend} />
-                    <SkillCategory title="Backend" emoji="⚙️" items={skills.backend} />
-                    <SkillCategory title="Tools & Others" emoji="🛠️" items={skills.tools} />
+                    <Reveal>
+                        <SkillCategory title="Frontend" emoji="🎨" items={skills.frontend} />
+                    </Reveal>
+                    <Reveal delay={150}>
+                        <SkillCategory title="Backend" emoji="⚙️" items={skills.backend} />
+                    </Reveal>
+                    <Reveal delay={300}>
+                        <SkillCategory title="Tools & Others" emoji="🛠️" items={skills.tools} />
+                    </Reveal>
                 </div>
 
                 {/* legend */}
-                <div className="pixel-panel inline-flex flex-wrap items-center gap-6 mt-10 px-6 py-4 mx-auto w-max max-w-full">
+                <Reveal delay={200} className="pixel-panel inline-flex flex-wrap items-center gap-6 mt-10 px-6 py-4 mx-auto w-max max-w-full">
                     <span className="font-press text-[8px] text-mute tracking-widest">LEVELS:</span>
                     {Object.entries(levelMeta).map(([level, meta]) => (
                         <span key={level} className="flex items-center gap-2">
@@ -98,7 +106,7 @@ export default function SkillsSection() {
                             <span className="font-mono text-[10px] text-mute">{level}</span>
                         </span>
                     ))}
-                </div>
+                </Reveal>
             </div>
         </section>
     );

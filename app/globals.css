@@ -173,6 +173,46 @@ section[id] {
 .animate-marquee {
     animation: marquee 22s linear infinite;
 }
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* entrance pop for hero pieces */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+.animate-pop-in {
+    opacity: 0;
+    animation: popIn 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+
+/* respect players who prefer a calm screen */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .reveal-init {
+        opacity: 1;
+        transform: none;
+    }
+    .animate-pop-in {
+        opacity: 1;
+    }
+}
 
 /* floating pixel sprites */
 @keyframes floaty {
@@ -186,6 +226,30 @@ section[id] {
 }
 .animate-floaty {
     animation: floaty 4s ease-in-out infinite;
+}
+
+/* scroll-in reveal (driven by <Reveal/> IntersectionObserver) */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+.reveal-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* XP blocks scale up one-by-one when their panel reveals */
+.xp-block {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.3s steps(3, end);
+}
+.reveal-visible .xp-block {
+    transform: scaleX(1);
 }
 
 /* CRT flicker, mostly off */

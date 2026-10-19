@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import ScrollProgress from "@/components/ScrollProgress";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { Geist, Press_Start_2P } from "next/font/google";
 import "./globals.css";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         >
             <body className="antialiased">
                 <ThemeProvider>
+                    <ScrollProgress />
                     <Navbar />
                     {children}
                 </ThemeProvider>

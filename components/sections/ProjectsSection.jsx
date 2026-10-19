@@ -1,4 +1,5 @@
 import { ExternalLinkIcon, GitHubIcon } from '@/components/Icons';
+import Reveal from '@/components/Reveal';
 import SectionHeader from '@/components/SectionHeader';
 import { projects } from '@/data/portfolio';
 
@@ -89,7 +90,9 @@ export default function ProjectsSection() {
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-9">
                     {projects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} index={index} />
+                        <Reveal key={project.id} delay={index * 130}>
+                            <ProjectCard project={project} index={index} />
+                        </Reveal>
                     ))}
                 </div>
 

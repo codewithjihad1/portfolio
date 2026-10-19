@@ -1,4 +1,5 @@
 import { EmailIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/Icons';
+import Reveal from '@/components/Reveal';
 import { personalInfo, socialLinks } from '@/data/portfolio';
 
 const socialIcons = {
@@ -28,7 +29,7 @@ export default function Footer() {
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* GAME OVER screen */}
-                <div className="text-center mb-14">
+                <Reveal className="text-center mb-14">
                     <div className="font-press text-xl sm:text-3xl text-pixie glow-pixie animate-flicker">
                         GAME OVER?
                     </div>
@@ -38,7 +39,7 @@ export default function Footer() {
                     <div className="font-press text-[8px] sm:text-[10px] text-gold glow-gold mt-3 animate-pulse">
                         ★ CONTINUE? INSERT COIN ★
                     </div>
-                </div>
+                </Reveal>
 
                 {/* middle row: nav + socials */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-8 pb-10 border-b-2 border-line">
