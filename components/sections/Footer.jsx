@@ -11,11 +11,11 @@ const socialIcons = {
 };
 
 const navLinks = [
-    { href: '/#hero', label: 'HOME' },
+    { href: '/', label: 'HOME' },
     { href: '/#about', label: 'ABOUT' },
     { href: '/#experience', label: 'EXPERIENCE' },
     { href: '/#skills', label: 'SKILLS' },
-    { href: '/#projects', label: 'PROJECTS' },
+    { href: '/projects', label: 'PROJECTS' },
     { href: '/#contact', label: 'CONTACT' },
 ];
 

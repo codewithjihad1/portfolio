@@ -117,7 +117,7 @@ export default function HeroSection() {
                                 ▶ CONTACT ME
                             </a>
                             <a
-                                href="#projects"
+                                href="/projects"
                                 className="pixel-press bg-panel text-ink font-press text-[10px] sm:text-xs px-6 py-3.5 cursor-pointer"
                             >
                                 VIEW PROJECTS

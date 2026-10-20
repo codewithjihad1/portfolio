@@ -45,7 +45,7 @@ export default async function ProjectDetailsPage({ params }) {
                 {/* breadcrumb */}
                 <Reveal className="mb-10">
                     <Link
-                        href="/#projects"
+                        href="/projects"
                         className="pixel-press inline-flex items-center gap-2 bg-panel px-4 py-2.5 font-press text-[8px] sm:text-[9px] text-ink hover:text-aqua">
                         <span aria-hidden="true">←</span> BACK TO PROJECTS
                     </Link>
@@ -222,7 +222,7 @@ export default async function ProjectDetailsPage({ params }) {
                 <Reveal delay={160}>
                     <div className="text-center mt-14">
                         <Link
-                            href="/#projects"
+                            href="/projects"
                             className="pixel-press inline-flex items-center gap-3 px-7 py-4 bg-panel text-ink font-press text-[10px] sm:text-xs hover:text-grape">
                             VIEW ALL PROJECTS
                         </Link>
