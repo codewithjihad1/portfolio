@@ -5,11 +5,11 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useEffect, useState } from 'react';
 
 const navLinks = [
-    { href: '#hero', label: 'PLAY', icon: '▶' },
-    { href: '#about', label: 'PLAYER', icon: '☺' },
-    { href: '#experience', label: 'QUESTS', icon: '⚔' },
+    { href: '#hero', label: 'HOME', icon: '▶' },
+    { href: '#about', label: 'ABOUT', icon: '☺' },
+    { href: '#experience', label: 'EXPERIENCE', icon: '⚔' },
     { href: '#skills', label: 'SKILLS', icon: '✦' },
-    { href: '#projects', label: 'GAMES', icon: '▣' },
+    { href: '#projects', label: 'PROJECTS', icon: '▣' },
     { href: '#contact', label: 'CONTACT', icon: '✉' },
 ];
 
@@ -34,11 +34,11 @@ export default function Navbar() {
 
             <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div className="flex items-center justify-between h-14">
-                    {/* Player 1 badge */}
+                    {/* Player badge */}
                     <a href="#hero" className="flex items-center gap-3 group">
                         <span className="font-press text-neon text-xs glow-neon">JIHAD</span>
                         <span className="hidden sm:inline font-press text-[9px] text-mute tracking-widest">
-                            PLAYER 1
+                            FRONTEND DEVELOPER
                         </span>
                         <span className="flex gap-0.5" aria-hidden="true">
                             {[0, 1, 2].map((i) => (
@@ -75,7 +75,7 @@ export default function Navbar() {
                         <a
                             href="#contact"
                             className="hidden md:inline-flex pixel-press bg-gold text-void font-press text-[9px] px-4 py-2 items-center hover:bg-gold">
-                            ▶ START
+                            ▶ HIRE ME
                         </a>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
@@ -103,7 +103,7 @@ export default function Navbar() {
                             href="#contact"
                             onClick={() => setIsOpen(false)}
                             className="block mt-1 mx-2 py-2.5 bg-gold text-void font-press text-[10px] text-center">
-                            ▶ START
+                            ▶ HIRE ME
                         </a>
                     </div>
                 )}

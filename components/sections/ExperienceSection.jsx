@@ -2,7 +2,7 @@ import Reveal from '@/components/Reveal';
 import SectionHeader from '@/components/SectionHeader';
 import { experience } from '@/data/portfolio';
 
-function QuestCard({ job, isLast }) {
+function ExperienceCard({ job, isLast }) {
     return (
         <div className="relative flex gap-6 sm:gap-8">
             {/* timeline */}
@@ -15,13 +15,13 @@ function QuestCard({ job, isLast }) {
                 {!isLast && <div className="w-0.5 flex-1 bg-line mt-2" />}
             </div>
 
-            {/* quest card */}
+            {/* experience card */}
             <div className="flex-1 pb-12">
                 <div className="pixel-panel bg-panel">
                     {/* card header strip */}
                     <div className="flex items-center justify-between border-b-2 border-line px-5 py-2.5 bg-void">
                         <span className="font-press text-[8px] sm:text-[9px] text-gold tracking-widest">
-                            ★ QUEST {String(job.id).padStart(2, '0')}
+                            ★ EXPERIENCE {String(job.id).padStart(2, '0')}
                         </span>
                         <span
                             className={`font-press text-[7px] sm:text-[8px] px-2.5 py-1 border-2 border-line flex items-center gap-1.5 ${
@@ -30,7 +30,7 @@ function QuestCard({ job, isLast }) {
                             {job.current && (
                                 <span className="w-1.5 h-1.5 bg-neon animate-pulse" aria-hidden="true" />
                             )}
-                            {job.current ? 'IN PROGRESS' : job.type.toUpperCase()}
+                            {job.current ? 'CURRENT' : job.type.toUpperCase()}
                         </span>
                     </div>
 
@@ -43,9 +43,9 @@ function QuestCard({ job, isLast }) {
 
                         <p className="text-mute font-mono text-sm leading-relaxed mt-5">{job.description}</p>
 
-                        {/* rewards */}
+                        {/* achievements */}
                         <h4 className="font-press text-[8px] text-gold tracking-widest mt-6 mb-3">
-                            ◆ REWARDS EARNED:
+                            ◆ KEY ACHIEVEMENTS:
                         </h4>
                         <ul className="space-y-2.5">
                             {job.achievements.map((item, i) => (
@@ -60,9 +60,9 @@ function QuestCard({ job, isLast }) {
                             ))}
                         </ul>
 
-                        {/* loot */}
+                        {/* tech stack */}
                         <h4 className="font-press text-[8px] text-pixie glow-pixie tracking-widest mt-6 mb-3">
-                            ◆ LOOT / TECHNOLOGIES:
+                            ◆ TECHNOLOGIES:
                         </h4>
                         <div className="flex flex-wrap gap-2">
                             {job.technologies.map((tech) => (
@@ -85,16 +85,16 @@ export default function ExperienceSection() {
         <section id="experience" className="py-24 bg-void2 border-y-2 border-line">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
-                    stage="STAGE 03"
-                    eyebrow="ADVENTURE HISTORY"
-                    title="Quest Log"
-                    sub="Every role is a quest. Every bug fixed, a monster slain."
+                    stage="03"
+                    eyebrow="CAREER"
+                    title="Work Experience"
+                    sub="An overview of my professional roles, responsibilities, and key contributions."
                 />
 
                 <div className="max-w-3xl mx-auto">
                     {experience.map((job, index) => (
                         <Reveal key={job.id}>
-                            <QuestCard job={job} isLast={index === experience.length - 1} />
+                            <ExperienceCard job={job} isLast={index === experience.length - 1} />
                         </Reveal>
                     ))}
                 </div>

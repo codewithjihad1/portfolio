@@ -29,12 +29,12 @@ const sprites = [
 const marqueeWords = [
     "MD JIHAD HOSSAIN",
     "FRONTEND DEVELOPER",
-    "REACT",
+    "REACT.JS",
     "NEXT.JS",
     "TYPESCRIPT",
     "TAILWIND CSS",
-    "PRESS START",
-    "GAME ON",
+    "CLEAN CODE",
+    "USER EXPERIENCE",
 ];
 
 export default function HeroSection() {
@@ -58,9 +58,9 @@ export default function HeroSection() {
             {/* HUD row */}
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="flex justify-between items-center font-press text-[9px] sm:text-[10px] text-mute tracking-widest mb-2">
-                    <span>PLAYER: MD_JIHAD</span>
-                    <span className="hidden sm:inline">WORLD 1-1</span>
-                    <span className="text-gold glow-gold">×3 ♥</span>
+                    <span>MD JIHAD HOSSAIN</span>
+                    <span className="hidden sm:inline">PORTFOLIO 2026</span>
+                    <span className="text-gold glow-gold">OPEN TO WORK</span>
                 </div>
             </div>
 
@@ -114,13 +114,13 @@ export default function HeroSection() {
                                 href="#contact"
                                 className="pixel-press bg-neon text-void font-press text-[10px] sm:text-xs px-6 py-3.5 hover:bg-neon cursor-pointer animate-pulse"
                             >
-                                ▶ START GAME
+                                ▶ CONTACT ME
                             </a>
                             <a
                                 href="#projects"
                                 className="pixel-press bg-panel text-ink font-press text-[10px] sm:text-xs px-6 py-3.5 cursor-pointer"
                             >
-                                VIEW LEVELS
+                                VIEW PROJECTS
                             </a>
                         </div>
 
@@ -170,7 +170,7 @@ export default function HeroSection() {
                                 />
                                 {/* HUD label */}
                                 <div className="absolute bottom-0 inset-x-0 bg-line/90 px-3 py-2 font-press text-[7px] sm:text-[9px] text-void text-center tracking-wider">
-                                    P1 · LV.99 FRONTEND DEV
+                                    P1 · FRONTEND DEVELOPER
                                 </div>
                             </div>
                         </div>
@@ -178,7 +178,7 @@ export default function HeroSection() {
                         {/* availability chip */}
                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 pixel-press bg-panel px-4 py-1.5">
                             <span className="font-press text-[8px] text-ink tracking-wider">
-                                + UP &amp; READY
+                                + AVAILABLE NOW
                             </span>
                         </div>
                     </div>
@@ -188,7 +188,7 @@ export default function HeroSection() {
             {/* scroll hint */}
             <div className="pb-6 text-center" aria-hidden="true">
                 <span className="font-press text-[8px] sm:text-[10px] text-mute animate-pulse tracking-widest">
-                    ▼ SCROLL TO CONTINUE
+                    ▼ SCROLL TO EXPLORE
                 </span>
             </div>
 

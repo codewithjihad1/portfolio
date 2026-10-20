@@ -4,13 +4,13 @@ export const personalInfo = {
     lastName: 'Hossain',
     title: 'Frontend Developer',
     roles: ['Frontend Developer', 'React Developer', 'Next.js Developer', 'Full Stack Developer'],
-    bio: 'Passionate Frontend Developer with expertise in modern web technologies. I love creating innovative solutions that bridge the gap between design and functionality, delivering exceptional user experiences through clean, efficient code.',
+    bio: 'Frontend Developer focused on building fast, accessible, and user-friendly web applications. I turn designs into clean, efficient code that delivers great real-world performance.',
     location: 'Jamalpur, Bangladesh',
     email: 'mdjihadhossain793@gmail.com',
     phone: '+8801646348232',
     avatar: 'https://i.ibb.co.com/YTw4JFsN/jihad.webp',
     resumeUrl: '#',
-    availability: 'Available for freelance & full-time',
+    availability: 'Available for freelance & full-time roles',
 };
 
 export const socialLinks = [

@@ -4,10 +4,10 @@ import { skills } from '@/data/portfolio';
 
 /* level → XP bar fill (out of 10) + tag */
 const levelMeta = {
-    Expert: { blocks: 9, tag: 'MAX' },
-    Advanced: { blocks: 7, tag: 'LV.7' },
-    Intermediate: { blocks: 5, tag: 'LV.5' },
-    Beginner: { blocks: 3, tag: 'LV.3' },
+    Expert: { blocks: 9, tag: '9 / 10' },
+    Advanced: { blocks: 7, tag: '7 / 10' },
+    Intermediate: { blocks: 5, tag: '5 / 10' },
+    Beginner: { blocks: 3, tag: '3 / 10' },
 };
 
 const categoryColor = {
@@ -27,7 +27,7 @@ function SkillCategory({ title, emoji, items }) {
                     {title.toUpperCase()}
                 </h3>
                 <span className={`font-press text-[7px] px-2 py-1 border ${headerClass}`}>
-                    {items.length} ITEMS
+                    {items.length} SKILLS
                 </span>
             </div>
 
@@ -70,10 +70,10 @@ export default function SkillsSection() {
         <section id="skills" className="py-24 bg-void">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
-                    stage="STAGE 02"
-                    eyebrow="ABILITIES"
-                    title="My Skills"
-                    sub="Attribute points allocated across the web development skill tree."
+                    stage="02"
+                    eyebrow="TECH STACK"
+                    title="Skills &amp; Expertise"
+                    sub="The technologies and tools I use to design, build, and maintain modern web applications."
                 />
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -90,7 +90,7 @@ export default function SkillsSection() {
 
                 {/* legend */}
                 <Reveal delay={200} className="pixel-panel inline-flex flex-wrap items-center gap-6 mt-10 px-6 py-4 mx-auto w-max max-w-full">
-                    <span className="font-press text-[8px] text-mute tracking-widest">LEVELS:</span>
+                    <span className="font-press text-[8px] text-mute tracking-widest">PROFICIENCY:</span>
                     {Object.entries(levelMeta).map(([level, meta]) => (
                         <span key={level} className="flex items-center gap-2">
                             <span className="flex gap-0.5" aria-hidden="true">

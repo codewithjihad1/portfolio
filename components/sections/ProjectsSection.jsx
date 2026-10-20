@@ -61,7 +61,7 @@ function ProjectCard({ project, index }) {
                         rel="noopener noreferrer"
                         className="pixel-press flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-neon text-void font-press text-[8px] sm:text-[9px] hover:bg-neon">
                         <ExternalLinkIcon className="w-3.5 h-3.5" />
-                        ▶ PLAY
+                        ▶ LIVE DEMO
                     </a>
                     <a
                         href={project.github}
@@ -69,7 +69,7 @@ function ProjectCard({ project, index }) {
                         rel="noopener noreferrer"
                         className="pixel-press flex items-center justify-center gap-2 px-4 py-3 bg-panel text-ink font-press text-[8px] sm:text-[9px] hover:text-aqua">
                         <GitHubIcon className="w-4 h-4" />
-                        SOURCE
+                        SOURCE CODE
                     </a>
                 </div>
             </div>
@@ -82,10 +82,10 @@ export default function ProjectsSection() {
         <section id="projects" className="py-24 bg-void">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
-                    stage="STAGE 04"
-                    eyebrow="ARCADE CABINET"
-                    title="Featured Games"
-                    sub="Insert coin to preview. Click ▶ PLAY to run any game."
+                    stage="04"
+                    eyebrow="PORTFOLIO"
+                    title="Featured Projects"
+                    sub="A selection of applications I have built — from concept and design to deployment."
                 />
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-9">
@@ -104,7 +104,7 @@ export default function ProjectsSection() {
                         rel="noopener noreferrer"
                         className="pixel-press inline-flex items-center gap-3 px-7 py-4 bg-panel text-ink font-press text-[10px] sm:text-xs hover:text-grape">
                         <GitHubIcon />
-                        LOAD MORE ROMs
+                        VIEW MORE ON GITHUB
                     </a>
                 </div>
             </div>

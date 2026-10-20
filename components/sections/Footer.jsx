@@ -10,11 +10,11 @@ const socialIcons = {
 };
 
 const navLinks = [
-    { href: '#hero', label: 'PLAY' },
-    { href: '#about', label: 'PLAYER' },
-    { href: '#experience', label: 'QUESTS' },
+    { href: '#hero', label: 'HOME' },
+    { href: '#about', label: 'ABOUT' },
+    { href: '#experience', label: 'EXPERIENCE' },
     { href: '#skills', label: 'SKILLS' },
-    { href: '#projects', label: 'GAMES' },
+    { href: '#projects', label: 'PROJECTS' },
     { href: '#contact', label: 'CONTACT' },
 ];
 
@@ -28,16 +28,16 @@ export default function Footer() {
             />
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* GAME OVER screen */}
+                {/* Thank-you banner */}
                 <Reveal className="text-center mb-14">
                     <div className="font-press text-xl sm:text-3xl text-pixie glow-pixie animate-flicker">
-                        GAME OVER?
+                        THANKS FOR VISITING
                     </div>
                     <div className="font-press text-[9px] sm:text-[11px] text-mute mt-5 tracking-widest">
-                        NAH — IT&apos;S JUST CREDITS
+                        LET&apos;S BUILD SOMETHING GREAT TOGETHER
                     </div>
                     <div className="font-press text-[8px] sm:text-[10px] text-gold glow-gold mt-3 animate-pulse">
-                        ★ CONTINUE? INSERT COIN ★
+                        ★ OPEN TO FREELANCE &amp; FULL-TIME ROLES ★
                     </div>
                 </Reveal>
 
@@ -75,16 +75,15 @@ export default function Footer() {
                 {/* credit roll */}
                 <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-mute">
                     <p>
-                        © {new Date().getFullYear()} <span className="text-ink">MD JIHAD HOSSAIN</span> · TOP SCORE:{' '}
-                        <span className="text-neon glow-neon">999999</span>
+                        © {new Date().getFullYear()} <span className="text-ink">MD JIHAD HOSSAIN</span> · ALL RIGHTS
+                        {' '}RESERVED
                     </p>
                     <p>
                         BUILT WITH{' '}
                         <span className="text-aqua font-medium">NEXT.JS</span> +{' '}
-                        <span className="text-aqua font-medium">TAILWIND</span> ON{' '}
-                        <span className="text-grape font-medium">CRT MODE</span>
+                        <span className="text-aqua font-medium">TAILWIND CSS</span>
                     </p>
-                    <p className="hidden lg:block">MAIL: {personalInfo.email}</p>
+                    <p className="hidden lg:block">EMAIL: {personalInfo.email}</p>
                 </div>
             </div>
         </footer>

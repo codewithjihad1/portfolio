@@ -7,10 +7,10 @@ import { contactInfo, socialLinks } from '@/data/portfolio';
 import { useState } from 'react';
 
 const contactCards = [
-    { icon: EmailIcon, label: 'MAIL', value: contactInfo.email, href: `mailto:${contactInfo.email}` },
+    { icon: EmailIcon, label: 'EMAIL', value: contactInfo.email, href: `mailto:${contactInfo.email}` },
     { icon: PhoneIcon, label: 'PHONE', value: contactInfo.phone, href: `tel:${contactInfo.phone}` },
-    { icon: MapPinIcon, label: 'MAP', value: contactInfo.location, href: '#' },
-    { icon: ClockIcon, label: 'RESPAWN TIME', value: contactInfo.responseTime, href: '#' },
+    { icon: MapPinIcon, label: 'LOCATION', value: contactInfo.location, href: '#' },
+    { icon: ClockIcon, label: 'RESPONSE TIME', value: contactInfo.responseTime, href: '#' },
 ];
 
 const socialIcons = { GitHub: GitHubIcon, LinkedIn: LinkedInIcon, Twitter: TwitterIcon, Email: EmailIcon };
@@ -53,18 +53,18 @@ export default function ContactSection() {
         <section id="contact" className="py-24 bg-void2 border-t-2 border-line">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
-                    stage="FINAL STAGE"
-                    eyebrow="TRANSMISSION"
+                    stage="05"
+                    eyebrow="GET IN TOUCH"
                     title="Contact Me"
-                    sub={`${contactInfo.availability}. Open a channel to Player 1 below.`}
+                    sub={`${contactInfo.availability}. Fill out the form below and I will get back to you soon.`}
                 />
 
                 <div className="grid lg:grid-cols-2 gap-12">
-                    {/* Left — channel select menu */}
+                    {/* Left — contact details */}
                     <Reveal>
                         <div className="space-y-5">
                             <h3 className="font-press text-[9px] text-gold glow-gold tracking-widest">
-                                ◆ SELECT A CHANNEL:
+                                ◆ CONTACT INFORMATION:
                             </h3>
                         {contactCards.map(({ icon: Icon, label, value, href }) => (
                             <a
@@ -86,7 +86,7 @@ export default function ContactSection() {
                         {/* join party — socials */}
                         <div className="pt-3">
                             <h3 className="font-press text-[9px] text-grape tracking-widest mb-4">
-                                ◆ JOIN MY PARTY:
+                                ◆ CONNECT WITH ME:
                             </h3>
                             <div className="flex gap-4 flex-wrap">
                                 {socialLinks.map(({ name, url }) => {
@@ -114,7 +114,7 @@ export default function ContactSection() {
                         {/* window title bar */}
                         <div className="flex items-center justify-between border-b-2 border-line bg-void px-4 py-2.5">
                             <span className="font-press text-[8px] text-aqua tracking-widest">
-                                [ ] NEW_MESSAGE.EXE
+                                [ ] SEND_A_MESSAGE.TXT
                             </span>
                             <span className="flex gap-1.5" aria-hidden="true">
                                 <span className="w-2.5 h-2.5 bg-pixie" />
@@ -127,16 +127,16 @@ export default function ContactSection() {
                             {status === 'sent' ? (
                                 <div className="text-center py-14">
                                     <div className="font-press text-2xl sm:text-3xl text-neon glow-neon mb-5">
-                                        ★ LEVEL ★
+                                        ✓ SUCCESS
                                     </div>
-                                    <div className="font-press text-xl sm:text-2xl text-ink mb-4">CLEARED!</div>
+                                    <div className="font-press text-xl sm:text-2xl text-ink mb-4">MESSAGE SENT!</div>
                                     <p className="text-mute font-mono text-sm leading-relaxed">
-                                        Transmission received. Player 1 responds within 24 hours.
+                                        Thank you for reaching out. I will get back to you within 24 hours.
                                     </p>
                                     <button
                                         onClick={() => setStatus('idle')}
                                         className="pixel-press mt-8 px-6 py-3 bg-gold text-void font-press text-[9px] cursor-pointer hover:bg-gold">
-                                        ↺ PLAY AGAIN
+                                        ↺ SEND ANOTHER
                                     </button>
                                 </div>
                             ) : (
@@ -144,14 +144,14 @@ export default function ContactSection() {
                                     <div className="grid sm:grid-cols-2 gap-5">
                                         <div>
                                             <label className="block font-press text-[7px] text-mute tracking-widest mb-2">
-                                                PLAYER NAME
+                                                YOUR NAME
                                             </label>
                                             <input
                                                 name="name"
                                                 value={form.name}
                                                 onChange={handleChange}
                                                 required
-                                                placeholder="your_name"
+                                                placeholder="Your name"
                                                 className={inputClass}
                                             />
                                         </div>
@@ -165,7 +165,7 @@ export default function ContactSection() {
                                                 value={form.email}
                                                 onChange={handleChange}
                                                 required
-                                                placeholder="you@planet.space"
+                                                placeholder="you@example.com"
                                                 className={inputClass}
                                             />
                                         </div>
@@ -179,7 +179,7 @@ export default function ContactSection() {
                                             value={form.subject}
                                             onChange={handleChange}
                                             required
-                                            placeholder="PROJECT_QUEST"
+                                            placeholder="Project inquiry"
                                             className={inputClass}
                                         />
                                     </div>
@@ -193,23 +193,23 @@ export default function ContactSection() {
                                             onChange={handleChange}
                                             required
                                             rows={5}
-                                            placeholder="Tell me about your quest..."
+                                            placeholder="Tell me about your project..."
                                             className={inputClass + ' h-auto'}
                                         />
                                     </div>
                                     {error && (
                                         <p className="font-mono text-sm text-pixie bg-pixie/10 border-2 border-pixie px-4 py-3">
-                                            ⚠ GAME OVER — {error}
+                                            ⚠ ERROR — {error}
                                         </p>
                                     )}
                                     <button
                                         type="submit"
                                         disabled={status === 'sending'}
                                         className="pixel-press w-full py-4 bg-neon text-void font-press text-[10px] sm:text-xs cursor-pointer disabled:opacity-70 hover:bg-neon">
-                                        {status === 'sending' ? '▒ TRANSMITTING...' : '▶ TRANSMIT'}
+                                        {status === 'sending' ? '▒ SENDING...' : '▶ SEND MESSAGE'}
                                     </button>
                                     <p className="text-center font-press text-[7px] text-mute tracking-widest animate-pulse">
-                                        INSERT COIN · FREE MESSAGE
+                                        SECURE · FREE · REPLY WITHIN 24 HOURS
                                     </p>
                                 </form>
                             )}

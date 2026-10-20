@@ -4,9 +4,9 @@ import SectionHeader from "@/components/SectionHeader";
 import { personalInfo } from "@/data/portfolio";
 
 const stats = [
-    { value: "3+", label: "QUESTS DONE", color: "text-neon" },
-    { value: "1+", label: "YEARS PLAYED", color: "text-aqua" },
-    { value: "10+", label: "WEAPONS", color: "text-gold" },
+    { value: "50+", label: "PROJECTS DONE", color: "text-neon" },
+    { value: "1+", label: "YEARS EXP.", color: "text-aqua" },
+    { value: "10+", label: "TECHNOLOGIES", color: "text-gold" },
     { value: "100%", label: "DEDICATION", color: "text-pixie" },
 ];
 
@@ -23,22 +23,22 @@ export default function AboutSection() {
         <section id="about" className="py-24 bg-void2 border-y-2 border-line">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
-                    stage="STAGE 01"
-                    eyebrow="PLAYER PROFILE"
+                    stage="01"
+                    eyebrow="PROFILE"
                     title="About Me"
-                    sub="Loading player data... Press ▶ to inspect."
+                    sub="A quick overview of who I am, my background, and what drives my work."
                 />
 
                 <div className="grid lg:grid-cols-2 gap-14 items-start">
-                    {/* Left — player card */}
+                    {/* Left — profile card */}
                     <Reveal>
                         <div className="pixel-panel p-6 sm:p-8">
                             <div className="flex items-center justify-between mb-6">
                                 <span className="font-press text-[9px] text-gold tracking-widest">
-                                    PLAYER CARD
+                                    PROFILE
                                 </span>
                                 <span className="font-press text-[9px] text-neon tracking-widest">
-                                    ● ONLINE
+                                    ● OPEN TO WORK
                                 </span>
                             </div>
 
@@ -57,10 +57,10 @@ export default function AboutSection() {
                                     MD JIHAD HOSSAIN
                                 </div>
                                 <div className="font-mono text-xs text-mute mt-2">
-                                    CLASS: {personalInfo.title}
+                                    ROLE: {personalInfo.title}
                                 </div>
                                 <div className="font-mono text-xs text-mute mt-1">
-                                    MAP: {personalInfo.location}
+                                    BASED IN: {personalInfo.location}
                                 </div>
                             </div>
 
@@ -141,7 +141,7 @@ export default function AboutSection() {
 
                             {/* inventory */}
                             <h4 className="font-press text-[9px] text-gold glow-gold tracking-widest mb-4">
-                                ◆ INVENTORY: HOBBIES
+                                ◆ INTERESTS &amp; HOBBIES
                             </h4>
                             <div className="flex flex-wrap gap-3">
                                 {hobbies.map(({ icon, label }) => (
