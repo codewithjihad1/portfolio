@@ -17,14 +17,14 @@ const socialIcons = {
 };
 
 /* floating 8-bit tiles */
-const sprites = [
-    { cls: "top-24 left-[8%] w-5 h-5 bg-neon", delay: "0s" },
-    { cls: "top-1/3 right-[12%] w-4 h-4 bg-pixie", delay: "0.6s" },
-    { cls: "top-[60%] left-[15%] w-3 h-3 bg-gold", delay: "1.1s" },
-    { cls: "bottom-32 right-[20%] w-5 h-5 bg-aqua", delay: "1.6s" },
-    { cls: "top-40 right-[6%] w-3 h-3 bg-grape", delay: "2s" },
-    { cls: "bottom-24 left-[6%] w-4 h-4 bg-pixie", delay: "0.3s" },
-];
+// const sprites = [
+//     { cls: "top-24 left-[8%] w-5 h-5 bg-neon", delay: "0s" },
+//     { cls: "top-1/3 right-[12%] w-4 h-4 bg-pixie", delay: "0.6s" },
+//     { cls: "top-[60%] left-[15%] w-3 h-3 bg-gold", delay: "1.1s" },
+//     { cls: "bottom-32 right-[20%] w-5 h-5 bg-aqua", delay: "1.6s" },
+//     { cls: "top-40 right-[6%] w-3 h-3 bg-grape", delay: "2s" },
+//     { cls: "bottom-24 left-[6%] w-4 h-4 bg-pixie", delay: "0.3s" },
+// ];
 
 const marqueeWords = [
     "MD JIHAD HOSSAIN",
@@ -43,26 +43,26 @@ export default function HeroSection() {
     return (
         <section
             id="hero"
-            className="min-h-screen flex flex-col relative overflow-hidden bg-void pt-24"
+            className="min-h-screen flex flex-col relative overflow-hidden bg-void pt-20 md:pt-12"
         >
             {/* pixel sprites */}
-            {sprites.map(({ cls, delay }, i) => (
+            {/* {sprites.map(({ cls, delay }, i) => (
                 <span
                     key={i}
                     aria-hidden="true"
                     className={`absolute animate-floaty opacity-70 ${cls}`}
                     style={{ animationDelay: delay }}
                 />
-            ))}
+            ))} */}
 
             {/* HUD row */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            {/* <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="flex justify-between items-center font-press text-[9px] sm:text-[10px] text-mute tracking-widest mb-2">
                     <span>MD JIHAD HOSSAIN</span>
                     <span className="hidden sm:inline">PORTFOLIO 2026</span>
                     <span className="text-gold glow-gold">OPEN TO WORK</span>
                 </div>
-            </div>
+            </div> */}
 
             {/* Main stage */}
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1 flex items-center">
@@ -170,14 +170,14 @@ export default function HeroSection() {
                                 />
                                 {/* HUD label */}
                                 <div className="absolute bottom-0 inset-x-0 bg-line/90 px-3 py-2 font-press text-[7px] sm:text-[9px] text-void text-center tracking-wider">
-                                    P1 · FRONTEND DEVELOPER
+                                    P1 · FULL-STACK DEVELOPER
                                 </div>
                             </div>
                         </div>
 
                         {/* availability chip */}
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 pixel-press bg-panel px-4 py-1.5">
-                            <span className="font-press text-[8px] text-ink tracking-wider">
+                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 pixel-press bg-panel py-0.5 px-1.5 md:px-4 md:py-1.5">
+                            <span className="font-press text-[7px] md:text-[8px] text-ink tracking-wider">
                                 + AVAILABLE NOW
                             </span>
                         </div>

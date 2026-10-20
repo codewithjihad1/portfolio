@@ -2,6 +2,7 @@ import { ExternalLinkIcon, GitHubIcon } from '@/components/Icons';
 import Reveal from '@/components/Reveal';
 import SectionHeader from '@/components/SectionHeader';
 import { projects } from '@/data/portfolio';
+import Link from 'next/link';
 
 /* cartridge color cycle */
 const cartridgeColors = ['text-aqua glow-aqua', 'text-pixie glow-pixie', 'text-gold glow-gold'];
@@ -20,7 +21,10 @@ function ProjectCard({ project, index }) {
                     ))}
                 </div>
 
-                <div className="scanlines border-2 border-line bg-void2 px-4 py-8 text-center">
+                <Link
+                    href={`/projects/${project.slug}`}
+                    aria-label={`View ${project.title} details`}
+                    className="scanlines block border-2 border-line bg-void2 px-4 py-8 text-center">
                     <h3 className={`font-press text-[10px] sm:text-xs ${color} leading-relaxed`}>
                         {project.title.toUpperCase()}
                     </h3>
@@ -28,7 +32,7 @@ function ProjectCard({ project, index }) {
                         className={`inline-block mt-4 font-press text-[7px] px-2.5 py-1.5 border-2 border-line bg-void text-mute tracking-widest`}>
                         {project.category.toUpperCase()}
                     </span>
-                </div>
+                </Link>
             </div>
 
             {/* content */}
@@ -52,6 +56,13 @@ function ProjectCard({ project, index }) {
                         </span>
                     )}
                 </div>
+
+                {/* details */}
+                <Link
+                    href={`/projects/${project.slug}`}
+                    className="pixel-press w-full flex items-center justify-center gap-2 px-4 py-3 mb-6 bg-panel text-ink font-press text-[8px] sm:text-[9px] hover:text-neon">
+                    ▸ VIEW DETAILS
+                </Link>
 
                 {/* controls: SELECT / START */}
                 <div className="flex gap-4">

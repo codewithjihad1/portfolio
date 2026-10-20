@@ -1,6 +1,7 @@
 import { EmailIcon, GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/Icons';
 import Reveal from '@/components/Reveal';
 import { personalInfo, socialLinks } from '@/data/portfolio';
+import Link from 'next/link';
 
 const socialIcons = {
     GitHub: GitHubIcon,
@@ -10,12 +11,12 @@ const socialIcons = {
 };
 
 const navLinks = [
-    { href: '#hero', label: 'HOME' },
-    { href: '#about', label: 'ABOUT' },
-    { href: '#experience', label: 'EXPERIENCE' },
-    { href: '#skills', label: 'SKILLS' },
-    { href: '#projects', label: 'PROJECTS' },
-    { href: '#contact', label: 'CONTACT' },
+    { href: '/#hero', label: 'HOME' },
+    { href: '/#about', label: 'ABOUT' },
+    { href: '/#experience', label: 'EXPERIENCE' },
+    { href: '/#skills', label: 'SKILLS' },
+    { href: '/#projects', label: 'PROJECTS' },
+    { href: '/#contact', label: 'CONTACT' },
 ];
 
 export default function Footer() {
